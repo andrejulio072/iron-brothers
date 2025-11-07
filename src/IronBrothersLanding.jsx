@@ -1,9 +1,39 @@
+import React from 'react'
+
 export default function IronBrothersLanding() {
   const [open, setOpen] = React.useState(false);
   const [lang, setLang] = React.useState('en');
   const copy = {
-    en:{tagline:'Real results • 100% personalized',nav:{programs:'Programs',coaches:'Coaches',experience:'Experience',results:'Results',plans:'Plans'},hero_a:'Build ',hero_b:'strength',hero_c:', burn ',hero_d:'fat',hero_e:' and become your best self.',hero_p:'Premium coaching with tailored training, simple nutrition, and real accountability — online or in-person.',cta_primary:'Book Free Consultation',cta_secondary:'See Proof & Testimonials',kpi1:'Transformations',kpi2:'Years of Experience',kpi3:'Avg. Rating',form:{name:'Name',email:'Email',whats:'WhatsApp',goal:'Main goal',goals:['Fat Loss','Muscle Gain','Recomp','Strength/Performance'],history:'Tell us your history and challenges',send:'Request Consultation'},footer_desc:'Premium coaching for lasting results. London • Dublin • Online Worldwide.',links:'Links',contact:'Contact'},
-    pt:{tagline:'Resultados Reais • 100% Personalizado',nav:{programs:'Programas',coaches:'Treinadores',experience:'Experiência',results:'Resultados',plans:'Planos'},hero_a:'Construa ',hero_b:'força',hero_c:', queime ',hero_d:'gordura',hero_e:' e torne-se a sua melhor versão.',hero_p:'Coaching premium com treino sob medida, nutrição simples e accountability de verdade — online ou presencial.',cta_primary:'Agendar Consultoria Grátis',cta_secondary:'Ver Provas & Depoimentos',kpi1:'{t('kpi1')}',kpi2:'{t('kpi2')}',kpi3:'{t('kpi3')}',form:{name:'Nome',email:'Email',whats:'WhatsApp',goal:'Objetivo principal',goals:['Perda de Gordura','Ganho de Massa','Recomposição','Força/Performance'],history:'{t('form').history}',send:'{t('form').send}'},footer_desc:'{t('footer_desc')}',links:'Links',contact:'Contato'}
+    en: {
+      tagline: 'Real results • 100% personalized',
+      nav: { programs: 'Programs', coaches: 'Coaches', experience: 'Experience', results: 'Results', plans: 'Plans' },
+      hero_a: 'Build ', hero_b: 'strength', hero_c: ', burn ', hero_d: 'fat', hero_e: ' and become your best self.',
+      hero_p: 'Premium coaching with tailored training, simple nutrition, and real accountability — online or in-person.',
+      cta_primary: 'Book Free Consultation', cta_secondary: 'See Proof & Testimonials',
+      kpi1: 'Transformations', kpi2: 'Years of Experience', kpi3: 'Avg. Rating',
+      form: {
+        name: 'Name', email: 'Email', whats: 'WhatsApp', goal: 'Main goal',
+        goals: ['Fat Loss','Muscle Gain','Recomp','Strength/Performance'],
+        history: 'Tell us your history and challenges', send: 'Request Consultation'
+      },
+      footer_desc: 'Premium coaching for lasting results. London • Dublin • Online Worldwide.',
+      links: 'Links', contact: 'Contact'
+    },
+    pt: {
+      tagline: 'Resultados Reais • 100% Personalizado',
+      nav: { programs: 'Programas', coaches: 'Treinadores', experience: 'Experiência', results: 'Resultados', plans: 'Planos' },
+      hero_a: 'Construa ', hero_b: 'força', hero_c: ', queime ', hero_d: 'gordura', hero_e: ' e torne-se a sua melhor versão.',
+      hero_p: 'Coaching premium com treino sob medida, nutrição simples e accountability de verdade — online ou presencial.',
+      cta_primary: 'Agendar Consultoria Grátis', cta_secondary: 'Ver Provas & Depoimentos',
+      kpi1: 'Transformações', kpi2: 'Anos de Experiência', kpi3: 'Avaliação Média',
+      form: {
+        name: 'Nome', email: 'Email', whats: 'WhatsApp', goal: 'Objetivo principal',
+        goals: ['Perda de Gordura','Ganho de Massa','Recomposição','Força/Performance'],
+        history: 'Conte sua história e desafios', send: 'Solicitar Consultoria'
+      },
+      footer_desc: 'Coaching premium para resultados duradouros. Londres • Dublin • Online Worldwide.',
+      links: 'Links', contact: 'Contato'
+    }
   };
   const t = (k)=> copy[lang][k];
   return (
@@ -96,7 +126,6 @@ export default function IronBrothersLanding() {
           <div className="relative">
             <div className="card glow p-0 overflow-hidden">
               <img src="https://source.unsplash.com/1200x1600/?gym,strength" alt="Iron Brothers hero" className="aspect-[3/4] w-full h-auto object-cover"/>
-            </div>
             </div>
             <div className="absolute -bottom-5 -left-6 hidden md:block">
               <div className="card px-4 py-3 text-sm border border-neutral-700/70">
@@ -235,7 +264,11 @@ export default function IronBrothersLanding() {
           <div className="grid md:grid-cols-3 gap-6 mt-8">
             {[1,2,3].map((i)=> (
               <div key={i} className="card overflow-hidden">
-                <img src="https://source.unsplash.com/800x1000/?before,after,fitness" className="aspect-[4/5] w-full object-cover" alt="Before/After #{i}</div>
+                <img
+                  src={`https://source.unsplash.com/800x1000/?before,after,fitness&sig=${i}`}
+                  className="aspect-[4/5] w-full object-cover"
+                  alt={`Before/After #${i}`}
+                />
                 <div className="p-5">
                   <div className="text-sm text-neutral-400">-12kg • 14 {lang==='en'?'weeks':'semanas'}</div>
                   <blockquote className="mt-2 text-neutral-200">“Coaching pessoal de verdade. A disciplina virou resultado.”</blockquote>
@@ -335,7 +368,7 @@ export default function IronBrothersLanding() {
               <option>{t('form').goal}</option>
               {t('form').goals.map(g=> (<option key={g}>{g}</option>))}
             </select>
-            <textarea placeholder="{t('form').history}" rows={4} className="bg-neutral-900 border border-neutral-800 rounded-lg px-4 py-3 outline-none focus:border-[var(--ib-teal)]"/>
+            <textarea placeholder={t('form').history} rows={4} className="bg-neutral-900 border border-neutral-800 rounded-lg px-4 py-3 outline-none focus:border-[var(--ib-teal)]"/>
             <button className="btn btn-gold justify-center">{t('form').send}</button>
             <p className="text-xs text-neutral-500">Ao enviar, você concorda com nossa política de privacidade.</p>
           </form>
