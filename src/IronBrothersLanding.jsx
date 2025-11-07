@@ -37,100 +37,283 @@ export default function IronBrothersLanding() {
   };
   const t = (k)=> copy[lang][k];
   return (
-    <div className="min-h-screen bg-neutral-950 text-neutral-100">
-      {/* --- Global Styles (tailwind utility-friendly) --- */}
+    <div className="min-h-screen bg-gradient-to-b from-neutral-950 via-neutral-900 to-neutral-950 text-neutral-100">
+      {/* --- Enhanced Global Styles with Animations --- */}
       <style>{`
-        :root{--ib-bg:#0b0b0b;--ib-card:#121212;--ib-soft:#1a1a1a;--ib-gold:#d6b462;--ib-gold-700:#b99344;--ib-teal:#00b3a4;--ib-teal-700:#029488}
-        .ib-container{max-width:1180px;margin:0 auto;padding:0 1rem}
-        .glow{box-shadow:0 0 0 1px rgba(214,180,98,.25),0 10px 30px rgba(2,148,136,.15)}
-        .btn{display:inline-flex;align-items:center;gap:.5rem;border-radius:9999px;padding:.9rem 1.2rem;font-weight:700}
-        .btn-gold{background:var(--ib-gold);color:#111}
-        .btn-gold:hover{background:var(--ib-gold-700)}
-        .btn-outline{border:1px solid #2a2a2a}
-        .tag{border:1px solid #2a2a2a;border-radius:9999px;padding:.35rem .7rem;color:#c5c5c5}
-        .card{background:var(--ib-card);border:1px solid #1f1f1f;border-radius:1.25rem}
-        .grad{background:linear-gradient(120deg,rgba(214,180,98,.2),rgba(0,179,164,.16) 40%,rgba(214,180,98,.08) 90%)}
-        .stroke{border-image:linear-gradient(90deg,rgba(214,180,98,.7),rgba(2,148,136,.6)) 1}
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+        :root{
+          --ib-bg:#0a0a0a;
+          --ib-card:#0f0f0f;
+          --ib-soft:#1a1a1a;
+          --ib-gold:#f59e0b;
+          --ib-gold-700:#d97706;
+          --ib-gold-900:#92400e;
+          --ib-teal:#06b6d4;
+          --ib-teal-700:#0891b2;
+          --ib-accent:#ec4899;
+        }
+
+        * { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+
+        .ib-container{max-width:1240px;margin:0 auto;padding:0 1.5rem}
+
+        .glow-card{
+          box-shadow:0 0 0 1px rgba(245,158,11,.15),
+                     0 10px 40px -10px rgba(6,182,212,.2),
+                     0 20px 60px -15px rgba(236,72,153,.15);
+          transition:all 0.4s cubic-bezier(0.4,0,0.2,1);
+        }
+        .glow-card:hover{
+          box-shadow:0 0 0 1px rgba(245,158,11,.3),
+                     0 15px 50px -10px rgba(6,182,212,.35),
+                     0 25px 70px -15px rgba(236,72,153,.25);
+          transform:translateY(-4px);
+        }
+
+        .btn{
+          display:inline-flex;align-items:center;gap:.6rem;
+          border-radius:9999px;padding:1rem 1.75rem;
+          font-weight:700;font-size:0.95rem;
+          transition:all 0.3s cubic-bezier(0.4,0,0.2,1);
+          position:relative;overflow:hidden;
+        }
+        .btn::before{
+          content:'';position:absolute;inset:0;
+          background:linear-gradient(45deg,transparent,rgba(255,255,255,0.1),transparent);
+          transform:translateX(-100%);
+          transition:transform 0.6s;
+        }
+        .btn:hover::before{transform:translateX(100%);}
+
+        .btn-gold{
+          background:linear-gradient(135deg,var(--ib-gold),var(--ib-gold-700));
+          color:#0a0a0a;
+          box-shadow:0 4px 20px rgba(245,158,11,0.4);
+        }
+        .btn-gold:hover{
+          box-shadow:0 6px 30px rgba(245,158,11,0.6);
+          transform:translateY(-2px);
+        }
+
+        .btn-outline{
+          border:2px solid rgba(245,158,11,0.3);
+          background:rgba(15,15,15,0.6);
+          backdrop-filter:blur(10px);
+        }
+        .btn-outline:hover{
+          border-color:rgba(245,158,11,0.6);
+          background:rgba(245,158,11,0.1);
+        }
+
+        .tag{
+          border:1px solid rgba(245,158,11,0.3);
+          border-radius:9999px;padding:.4rem .85rem;
+          color:#d4d4d4;font-size:0.85rem;font-weight:600;
+          background:rgba(15,15,15,0.5);backdrop-filter:blur(8px);
+        }
+
+        .card{
+          background:linear-gradient(135deg,rgba(15,15,15,0.9),rgba(20,20,20,0.8));
+          border:1px solid rgba(245,158,11,0.15);
+          border-radius:1.5rem;
+          backdrop-filter:blur(20px);
+          transition:all 0.4s cubic-bezier(0.4,0,0.2,1);
+        }
+        .card:hover{
+          border-color:rgba(245,158,11,0.3);
+          transform:translateY(-6px);
+        }
+
+        .grad-hero{
+          background:radial-gradient(ellipse at top,rgba(245,158,11,.12),transparent 60%),
+                     radial-gradient(ellipse at bottom right,rgba(6,182,212,.08),transparent 50%),
+                     radial-gradient(ellipse at bottom left,rgba(236,72,153,.06),transparent 50%);
+        }
+
+        .text-gradient{
+          background:linear-gradient(135deg,var(--ib-gold),var(--ib-teal),var(--ib-accent));
+          -webkit-background-clip:text;
+          -webkit-text-fill-color:transparent;
+          background-clip:text;
+        }
+
+        .animate-fade-in{
+          animation:fadeIn 0.8s ease-out forwards;
+        }
+        @keyframes fadeIn{
+          from{opacity:0;transform:translateY(20px);}
+          to{opacity:1;transform:translateY(0);}
+        }
+
+        .animate-slide-up{
+          animation:slideUp 0.6s ease-out forwards;
+        }
+        @keyframes slideUp{
+          from{opacity:0;transform:translateY(30px);}
+          to{opacity:1;transform:translateY(0);}
+        }
+
+        .hover-lift{
+          transition:transform 0.3s ease;
+        }
+        .hover-lift:hover{
+          transform:translateY(-8px);
+        }
+
+        .shimmer{
+          position:relative;
+          overflow:hidden;
+        }
+        .shimmer::after{
+          content:'';
+          position:absolute;
+          top:0;left:-100%;
+          width:100%;height:100%;
+          background:linear-gradient(90deg,transparent,rgba(255,255,255,0.1),transparent);
+          animation:shimmer 3s infinite;
+        }
+        @keyframes shimmer{
+          to{left:100%;}
+        }
       `}</style>
 
       {/* --- NAV --- */}
-      <header className="sticky top-0 z-50 backdrop-blur bg-neutral-950/80 border-b border-neutral-800/60">
-        <div className="ib-container flex items-center justify-between h-16">
-          <div className="flex items-center gap-3">
-            <div className="h-9 w-9 rounded-xl bg-gradient-to-br from-[var(--ib-gold)] to-[var(--ib-teal)]"/>
-            <div className="font-black tracking-tight text-lg">IRON BROTHERS</div>
-            <span className="hidden md:inline text-neutral-400 text-sm">Personal Training • Online Coaching</span>
+      <header className="sticky top-0 z-50 backdrop-blur-xl bg-neutral-950/80 border-b border-neutral-800/40 shadow-lg shadow-black/20">
+        <div className="ib-container flex items-center justify-between h-20">
+          <div className="flex items-center gap-4 animate-fade-in">
+            <div className="h-11 w-11 rounded-2xl bg-gradient-to-br from-amber-500 via-orange-500 to-cyan-500 shadow-lg shadow-amber-500/30 shimmer"/>
+            <div>
+              <div className="font-black tracking-tight text-xl text-gradient">IRON BROTHERS</div>
+              <div className="hidden sm:block text-neutral-400 text-xs font-medium">Premium Coaching • Worldwide</div>
+            </div>
           </div>
           {/* Desktop nav */}
-          <nav className="hidden md:flex items-center gap-6 text-sm text-neutral-300">
-            <a href="#programs" className="hover:text-white">{t('nav').programs}</a>
-            <a href="#coaches" className="hover:text-white">{t('nav').coaches}</a>
-            <a href="#experience" className="hover:text-white">{t('nav').experience}</a>
-            <a href="#results" className="hover:text-white">{t('nav').results}</a>
-            <a href="#pricing" className="hover:text-white">{t('nav').plans}</a>
-            <a href="#faq" className="hover:text-white">FAQ</a>
-            <button onClick={()=>setLang(lang==='en'?'pt':'en')} className="tag hover:text-white">{lang==='en'?'PT/BR':'EN'}</button>
-            <a href="#apply" className="btn btn-gold">{t('cta_primary')}</a>
+          <nav className="hidden lg:flex items-center gap-8 text-sm font-medium text-neutral-300">
+            <a href="#programs" className="hover:text-amber-400 transition-colors duration-300">{t('nav').programs}</a>
+            <a href="#coaches" className="hover:text-cyan-400 transition-colors duration-300">{t('nav').coaches}</a>
+            <a href="#experience" className="hover:text-amber-400 transition-colors duration-300">{t('nav').experience}</a>
+            <a href="#results" className="hover:text-cyan-400 transition-colors duration-300">{t('nav').results}</a>
+            <a href="#pricing" className="hover:text-amber-400 transition-colors duration-300">{t('nav').plans}</a>
+            <a href="#faq" className="hover:text-cyan-400 transition-colors duration-300">FAQ</a>
+            <button
+              onClick={()=>setLang(lang==='en'?'pt':'en')}
+              className="tag hover:text-white hover:border-amber-400 transition-all duration-300"
+            >
+              {lang==='en'?'🇧🇷 PT':'🇬🇧 EN'}
+            </button>
+            <a href="#apply" className="btn btn-gold shimmer">{t('cta_primary')}</a>
           </nav>
           {/* Mobile trigger */}
-          <button aria-label="Menu" onClick={()=>setOpen(!open)} className="md:hidden inline-flex items-center justify-center h-10 w-10 rounded-lg border border-neutral-700 text-neutral-200">
-            <span className="i">{open ? '✕' : '☰'}</span>
+          <button
+            aria-label="Menu"
+            onClick={()=>setOpen(!open)}
+            className="lg:hidden inline-flex items-center justify-center h-12 w-12 rounded-xl border border-neutral-700 text-neutral-200 hover:border-amber-500 hover:bg-amber-500/10 transition-all duration-300"
+          >
+            <span className="text-xl font-bold">{open ? '✕' : '☰'}</span>
           </button>
         </div>
         {/* Mobile menu */}
         {open && (
-          <div className="md:hidden border-t border-neutral-800 bg-neutral-950">
-            <div className="ib-container py-3 grid gap-2 text-sm">
+          <div className="lg:hidden border-t border-neutral-800/50 bg-neutral-950/95 backdrop-blur-xl animate-slide-up">
+            <div className="ib-container py-6 grid gap-3 text-sm font-medium">
               {[
                 ['Programas','#programs'],['Treinadores','#coaches'],['Experiência','#experience'],['Resultados','#results'],['Planos','#pricing'],['FAQ','#faq']
               ].map(([label,href])=> (
-                <a key={href} href={href} onClick={()=>setOpen(false)} className="py-2 text-neutral-300 hover:text-white border-b border-neutral-900/60">{label}</a>
+                <a
+                  key={href}
+                  href={href}
+                  onClick={()=>setOpen(false)}
+                  className="py-3 px-4 text-neutral-300 hover:text-amber-400 hover:bg-neutral-900/50 rounded-xl border border-transparent hover:border-neutral-800 transition-all duration-300"
+                >
+                  {label}
+                </a>
               ))}
-              <a href="#apply" onClick={()=>setOpen(false)} className="btn btn-gold mt-2 w-full justify-center">Começar Agora</a>
+              <a href="#apply" onClick={()=>setOpen(false)} className="btn btn-gold mt-3 w-full justify-center">Começar Agora</a>
             </div>
           </div>
         )}
       </header>
 
       {/* --- HERO --- */}
-      <section className="relative overflow-hidden">
-        <div className="absolute inset-0 grad opacity-40"/>
-        <div className="ib-container grid md:grid-cols-2 gap-10 pt-14 pb-16">
-          <div className="flex flex-col justify-center">
-            <span className="tag w-max mb-4">{t('tagline')}</span>
-            <h1 className="text-4xl md:text-5xl font-black leading-tight">{t('hero_a')}<span className="text-[var(--ib-gold)]">{t('hero_b')}</span>{t('hero_c')}<span className="text-[var(--ib-teal)]">{t('hero_d')}</span>{t('hero_e')}</h1>
-            <p className="mt-4 text-neutral-300 text-lg">{t('hero_p')}</p>
-            <div className="mt-6 flex flex-wrap gap-3">
-              <a href="#apply" className="btn btn-gold">{t('cta_primary')}</a>
-              <a href="#trust" className="btn btn-outline">{t('cta_secondary')}</a>
+      <section className="relative overflow-hidden grad-hero py-20 md:py-32">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-amber-900/20 via-transparent to-transparent opacity-40"/>
+
+        <div className="ib-container grid lg:grid-cols-2 gap-12 lg:gap-16 items-center relative z-10">
+          <div className="flex flex-col justify-center space-y-8 animate-fade-in">
+            <span className="tag w-max shimmer">{t('tagline')}</span>
+
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-black leading-[1.1] tracking-tight">
+              {t('hero_a')}
+              <span className="text-gradient">{t('hero_b')}</span>
+              {t('hero_c')}
+              <span className="text-gradient">{t('hero_d')}</span>
+              {t('hero_e')}
+            </h1>
+
+            <p className="text-lg md:text-xl text-neutral-300 leading-relaxed max-w-xl">
+              {t('hero_p')}
+            </p>
+
+            <div className="flex flex-wrap gap-4">
+              <a href="#apply" className="btn btn-gold shimmer text-lg px-8 py-4">
+                {t('cta_primary')}
+              </a>
+              <a href="#trust" className="btn btn-outline text-lg px-8 py-4">
+                {t('cta_secondary')}
+              </a>
             </div>
-            <div className="mt-6 flex items-center gap-2 text-sm text-neutral-400">
+
+            <div className="flex items-center gap-3 pt-4">
               <span className="tag">Instagram</span>
-              <a href="https://www.instagram.com/garciabuilder" target="_blank" className="hover:text-white">@garciabuilder</a>
+              <a
+                href="https://www.instagram.com/iron.brothersfitness"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-amber-400 hover:text-amber-300 font-semibold transition-colors duration-300"
+              >
+                @iron.brothersfitness
+              </a>
             </div>
-            <div className="mt-6 grid grid-cols-3 max-w-md text-center">
-              <div>
-                <div className="text-2xl font-extrabold">127+</div>
-                <div className="text-xs text-neutral-400">Transformações</div>
+
+            {/* KPIs */}
+            <div className="grid grid-cols-3 gap-6 pt-6 max-w-lg">
+              <div className="text-center space-y-1">
+                <div className="text-4xl md:text-5xl font-black text-gradient">127+</div>
+                <div className="text-xs md:text-sm text-neutral-400 font-medium">Transformações</div>
               </div>
-              <div>
-                <div className="text-2xl font-extrabold">12</div>
-                <div className="text-xs text-neutral-400">Anos de Experiência</div>
+              <div className="text-center space-y-1 border-l border-r border-neutral-800">
+                <div className="text-4xl md:text-5xl font-black text-gradient">12</div>
+                <div className="text-xs md:text-sm text-neutral-400 font-medium">Anos de Experiência</div>
               </div>
-              <div>
-                <div className="text-2xl font-extrabold">5.0★</div>
-                <div className="text-xs text-neutral-400">Avaliação Média</div>
+              <div className="text-center space-y-1">
+                <div className="text-4xl md:text-5xl font-black text-gradient">5.0★</div>
+                <div className="text-xs md:text-sm text-neutral-400 font-medium">Avaliação Média</div>
               </div>
             </div>
           </div>
-          <div className="relative">
-            <div className="card glow p-0 overflow-hidden">
-              <img src="https://source.unsplash.com/1200x1600/?gym,strength" alt="Iron Brothers hero" className="aspect-[3/4] w-full h-auto object-cover"/>
+
+          {/* Hero Image */}
+          <div className="relative animate-slide-up">
+            <div className="relative glow-card rounded-3xl overflow-hidden group">
+              <img
+                src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=800&q=90"
+                alt="Iron Brothers Coaching"
+                className="aspect-[3/4] w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60"/>
             </div>
-            <div className="absolute -bottom-5 -left-6 hidden md:block">
-              <div className="card px-4 py-3 text-sm border border-neutral-700/70">
-                <div className="font-semibold">Acompanhamento Semanal</div>
-                <div className="text-neutral-400">Ajustes táticos no plano + WhatsApp 24/7</div>
+
+            {/* Floating Card */}
+            <div className="hidden lg:block absolute -bottom-8 -left-8 max-w-xs">
+              <div className="card p-6 space-y-2 glow-card">
+                <div className="flex items-center gap-3">
+                  <div className="h-3 w-3 rounded-full bg-green-500 animate-pulse"/>
+                  <div className="font-bold text-white">Acompanhamento Semanal</div>
+                </div>
+                <p className="text-sm text-neutral-400">
+                  Ajustes táticos no plano + WhatsApp 24/7
+                </p>
               </div>
             </div>
           </div>
@@ -138,40 +321,60 @@ export default function IronBrothersLanding() {
       </section>
 
       {/* --- TRUST / STATS --- */}
-      <section id="trust" className="py-10 border-y border-neutral-800/70 bg-neutral-950/70">
-        <div className="ib-container grid md:grid-cols-4 gap-6 text-center">
-          {[
-            {kpi:'15K+',label:'Treinos Entregues'},
-            {kpi:'95%',label:'Taxa de Sucesso'},
-            {kpi:'3',label:'Idiomas (EN/PT/ES)'},
-            {kpi:'100%',label:'Planos Personalizados'}
-          ].map((i)=> (
-            <div key={i.label} className="card py-6">
-              <div className="text-3xl font-black text-white">{i.kpi}</div>
-              <div className="text-neutral-400 text-sm mt-1">{i.label}</div>
-            </div>
-          ))}
+      <section id="trust" className="py-16 md:py-20 border-y border-neutral-800/40 bg-neutral-900/30 backdrop-blur-sm">
+        <div className="ib-container">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
+            {[
+              {kpi:'15K+',label:'Treinos Entregues',icon:'💪'},
+              {kpi:'95%',label:'Taxa de Sucesso',icon:'🎯'},
+              {kpi:'3',label:'Idiomas (EN/PT/ES)',icon:'🌍'},
+              {kpi:'100%',label:'Planos Personalizados',icon:'⚡'}
+            ].map((i,idx)=> (
+              <div
+                key={i.label}
+                className="card p-6 md:p-8 text-center hover-lift glow-card"
+                style={{animationDelay: `${idx * 0.1}s`}}
+              >
+                <div className="text-4xl mb-3">{i.icon}</div>
+                <div className="text-4xl md:text-5xl font-black text-gradient mb-2">{i.kpi}</div>
+                <div className="text-neutral-400 text-sm md:text-base font-medium">{i.label}</div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* --- VALUE PROPOSITION --- */}
-      <section className="py-16">
-        <div className="ib-container">
-          <h2 className="text-3xl md:text-4xl font-black">O que você recebe</h2>
-          <p className="text-neutral-300 mt-2 max-w-2xl">Estrutura pensada para conversão e resultados: clareza no valor, prova social forte e chamada única para ação — princípios consagrados de páginas que mais convertem.</p>
+      <section className="py-20 md:py-28 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-cyan-900/10 via-transparent to-transparent"/>
 
-          <div className="grid md:grid-cols-3 gap-6 mt-8">
+        <div className="ib-container relative z-10">
+          <div className="text-center max-w-3xl mx-auto mb-16 space-y-4 animate-fade-in">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black">
+              O que você <span className="text-gradient">recebe</span>
+            </h2>
+            <p className="text-lg md:text-xl text-neutral-300 leading-relaxed">
+              Estrutura pensada para conversão e resultados: clareza no valor, prova social forte e chamada única para ação
+            </p>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {[
-              {title:'Treino por Fases',desc:'Blocos periodizados com progressão comprovada.'},
-              {title:'Nutrição Simples',desc:'Alvos práticos, sem dietas extremas.'},
-              {title:'Check-ins Semanais',desc:'Ajustes com base em dados reais.'},
-              {title:'Técnica & Segurança',desc:'Cues de execução e prevenção de lesões.'},
-              {title:'Habits & Mindset',desc:'Sistemas que mantêm consistência.'},
-              {title:'Suporte 24/7',desc:'WhatsApp direto com o coach.'},
-            ].map((f)=> (
-              <div key={f.title} className="card p-6 hover:shadow-xl hover:shadow-[rgba(2,148,136,.15)] transition-shadow">
-                <div className="text-[var(--ib-gold)] font-semibold">{f.title}</div>
-                <p className="text-neutral-300 mt-2">{f.desc}</p>
+              {icon:'📊',title:'Treino por Fases',desc:'Blocos periodizados com progressão comprovada e ajustes semanais.'},
+              {icon:'🥗',title:'Nutrição Simples',desc:'Alvos práticos e macros flexíveis, sem dietas extremas ou restrições.'},
+              {icon:'📈',title:'Check-ins Semanais',desc:'Ajustes precisos com base em dados reais e feedback contínuo.'},
+              {icon:'🎯',title:'Técnica & Segurança',desc:'Cues de execução profissional e estratégias de prevenção de lesões.'},
+              {icon:'🧠',title:'Habits & Mindset',desc:'Sistemas de consistência e hábitos sustentáveis de longo prazo.'},
+              {icon:'💬',title:'Suporte 24/7',desc:'WhatsApp direto com o coach para dúvidas e ajustes imediatos.'},
+            ].map((f,idx)=> (
+              <div
+                key={f.title}
+                className="card p-8 hover-lift glow-card group"
+                style={{animationDelay: `${idx * 0.1}s`}}
+              >
+                <div className="text-5xl mb-4 group-hover:scale-110 transition-transform duration-300">{f.icon}</div>
+                <h3 className="text-xl font-bold text-amber-400 mb-3">{f.title}</h3>
+                <p className="text-neutral-300 leading-relaxed">{f.desc}</p>
               </div>
             ))}
           </div>
