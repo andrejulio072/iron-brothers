@@ -1,0 +1,16 @@
+# Cloudflare Worker for Lead Form
+
+name = "iron-brothers-lead-capture"
+main = "cloudflare-worker.js"
+compatibility_date = "2024-01-01"
+
+# KV Namespace for rate limiting and lead storage
+# Create with: wrangler kv:namespace create "LEADS"
+[[kv_namespaces]]
+binding = "LEADS"
+id = "YOUR_KV_NAMESPACE_ID" # Replace after creating KV namespace
+
+# Environment variables (optional)
+# [vars]
+# TO_EMAIL = "your-email@example.com"
+# FROM_EMAIL = "leads@ironbrothers.com"
