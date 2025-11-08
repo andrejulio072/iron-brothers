@@ -13,29 +13,29 @@
       <stop offset="100%" style="stop-color:#f87171;stop-opacity:0" />
     </radialGradient>
   </defs>
-  
+
   <!-- Background -->
   <rect width="1200" height="630" fill="url(#bg)"/>
   <rect width="1200" height="630" fill="url(#glow1)"/>
   <rect width="1200" height="630" fill="url(#glow2)"/>
-  
+
   <!-- Brand mark -->
   <circle cx="100" cy="100" r="32" fill="rgba(96, 165, 250, 0.15)" stroke="#60a5fa" stroke-width="2"/>
   <text x="100" y="110" font-family="'Inter', sans-serif" font-size="28" font-weight="700" fill="#60a5fa" text-anchor="middle">IB</text>
-  
+
   <!-- Main headline -->
   <text x="100" y="220" font-family="'Inter', sans-serif" font-size="56" font-weight="700" fill="#f8fafc" letter-spacing="-0.02em">
     <tspan x="100" dy="0">High-Performance Coaching</tspan>
     <tspan x="100" dy="68">for Driven Leaders</tspan>
     <tspan x="100" dy="68">and Hybrid Athletes</tspan>
   </text>
-  
+
   <!-- Tagline -->
   <text x="100" y="440" font-family="'Inter', sans-serif" font-size="24" fill="rgba(226, 232, 240, 0.85)" letter-spacing="0.01em">
     <tspan x="100" dy="0">Bespoke protocols for founders, executives,</tspan>
     <tspan x="100" dy="34">and competitive athletes.</tspan>
   </text>
-  
+
   <!-- Brand name -->
   <text x="100" y="570" font-family="'Inter', sans-serif" font-size="20" font-weight="600" fill="rgba(148, 163, 184, 0.7)" letter-spacing="0.15em" text-transform="uppercase">IRON BROTHERS</text>
 </svg>

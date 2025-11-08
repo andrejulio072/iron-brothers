@@ -63,7 +63,7 @@ export default {
       // Rate limiting
       const rateLimitKey = `ratelimit:${ip}`;
       const rateLimitData = await env.LEADS.get(rateLimitKey, { type: 'json' });
-      
+
       if (rateLimitData) {
         const { count, expiresAt } = rateLimitData;
         if (Date.now() < expiresAt && count >= RATE_LIMIT.maxRequests) {
