@@ -7,6 +7,7 @@ const navItems = [
 	{ id: 'pricing', label: { en: 'Pricing', pt: 'Planos' } },
 	{ id: 'testimonials', label: { en: 'Testimonials', pt: 'Depoimentos' } },
 	{ id: 'shop', label: { en: 'Shop', pt: 'Loja' } },
+	{ id: 'schedule', label: { en: 'Schedule', pt: 'Agenda' } },
 	{ id: 'faq', label: { en: 'FAQ', pt: 'Perguntas' } }
 ];
 
@@ -334,6 +335,52 @@ const faqs = [
 	}
 ];
 
+const scheduleCopy = {
+	en: {
+		title: 'Book your strategic discovery call',
+		subtitle:
+			'Lock in a 30-minute virtual session to map goals, availability, and the high-performance infrastructure you need. Calendly integration is coming next; join the queue now.',
+		bullets: [
+			'Pre-call intake covering lifestyle, training age, and time constraints',
+			'Collaborative roadmap outlining hybrid training phases and accountability cadence',
+			'Clarity on which Iron Brothers program tier accelerates your goals'
+		],
+		cta: 'Notify me when scheduling opens',
+		note: 'You will be the first to know when the Calendly portal goes live so you can secure priority slots.'
+	},
+	pt: {
+		title: 'Agende sua call estratégica de descoberta',
+		subtitle:
+			'Reserve uma sessão virtual de 30 minutos para mapear objetivos, disponibilidade e a infraestrutura de alta performance que você precisa. Integração com Calendly chega em breve; entre na fila agora.',
+		bullets: [
+			'Pré-call cobrindo rotina, histórico de treinos e restrições de agenda',
+			'Plano colaborativo destacando fases de treino híbrido e cadência de accountability',
+			'Clareza sobre qual plano Iron Brothers acelera seus resultados'
+		],
+		cta: 'Avise quando abrir scheduling',
+		note: 'Você será avisado em primeira mão quando o portal Calendly estiver no ar para garantir horários prioritários.'
+	}
+};
+
+const leadMagnetCopy = {
+	en: {
+		headline: 'Download the 5-day Hybrid Performance Primer',
+		description:
+			'Get a tactical training + recovery plan built for executives and hybrid athletes. Includes mobility warm-ups, strength complexes, conditioning finishers, and recovery checkpoints.',
+		placeholder: 'Enter your best email',
+		cta: 'Send me the primer',
+		disclaimer: 'By submitting you agree to receive Iron Brothers insights. No spam. Unsubscribe any time.'
+	},
+	pt: {
+		headline: 'Baixe o Guia de Performance Híbrida em 5 Dias',
+		description:
+			'Receba um plano tático de treino + recuperação para executivos e atletas híbridos. Inclui aquecimentos de mobilidade, complexos de força, condicionamento finalizador e checkpoints de recuperação.',
+		placeholder: 'Digite seu melhor e-mail',
+		cta: 'Quero receber o guia',
+		disclaimer: 'Ao enviar você concorda em receber insights da Iron Brothers. Sem spam. Descadastre-se a qualquer momento.'
+	}
+};
+
 const shopPreview = {
 	en: {
 		title: 'Iron Brothers Store (Coming Soon)',
@@ -595,6 +642,12 @@ const styles = {
 		gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
 		gap: '24px'
 	},
+	splitSection: {
+		display: 'grid',
+		gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+		gap: '28px',
+		alignItems: 'flex-start'
+	},
 	glassCard: {
 		background: 'rgba(15, 23, 42, 0.72)',
 		border: '1px solid rgba(148, 163, 184, 0.25)',
@@ -610,6 +663,11 @@ const styles = {
 		display: 'flex',
 		flexDirection: 'column',
 		gap: '12px'
+	},
+	bulletItem: {
+		display: 'flex',
+		gap: '10px',
+		color: 'rgba(226, 232, 240, 0.9)'
 	},
 	muted: {
 		color: 'rgba(148, 163, 184, 0.8)',
@@ -686,6 +744,31 @@ const styles = {
 		fontWeight: 500,
 		cursor: 'pointer'
 	},
+	leadForm: {
+		display: 'flex',
+		flexDirection: 'column',
+		gap: '12px',
+		marginTop: '20px'
+	},
+	leadInput: {
+		background: 'rgba(15, 23, 42, 0.7)',
+		border: '1px solid rgba(148, 163, 184, 0.35)',
+		borderRadius: '12px',
+		padding: '12px 16px',
+		color: '#f8fafc',
+		fontSize: '14px'
+	},
+	leadDisclaimer: {
+		color: 'rgba(148, 163, 184, 0.75)',
+		fontSize: '12px',
+		lineHeight: 1.5
+	},
+	note: {
+		color: 'rgba(148, 163, 184, 0.85)',
+		fontSize: '14px',
+		marginTop: '18px',
+		lineHeight: 1.6
+	},
 	footer: {
 		marginTop: '80px',
 		paddingTop: '32px',
@@ -709,6 +792,8 @@ export default function IronBrothersLanding() {
 	const [language, setLanguage] = useState('en');
 	const hero = useMemo(() => heroCopy[language], [language]);
 	const cta = useMemo(() => ctaCopy[language], [language]);
+	const schedule = useMemo(() => scheduleCopy[language], [language]);
+	const leadMagnet = useMemo(() => leadMagnetCopy[language], [language]);
 	const shop = useMemo(() => shopPreview[language], [language]);
 	const footer = useMemo(() => footerCopy[language], [language]);
 
@@ -987,6 +1072,50 @@ export default function IronBrothersLanding() {
 							{language === 'en' ? 'Join the waitlist' : 'Entrar na lista de espera'}
 						</button>
 						<p style={{ ...styles.muted, marginTop: '12px' }}>{shop.note}</p>
+					</div>
+				</section>
+
+				<section style={styles.section} id="schedule">
+					<div style={styles.sectionHeader}>
+						<span style={styles.sectionLabel}>{language === 'en' ? 'Schedule' : 'Agenda'}</span>
+						<h2 style={styles.sectionTitle}>{schedule.title}</h2>
+						<p style={styles.sectionSubtitle}>{schedule.subtitle}</p>
+					</div>
+					<div style={styles.splitSection}>
+						<article style={styles.glassCard}>
+							<h3 style={{ fontSize: '20px', fontWeight: 600, marginBottom: '14px', color: '#f8fafc' }}>
+								{language === 'en' ? 'What to expect' : 'O que esperar'}
+							</h3>
+							<ul style={styles.list}>
+								{schedule.bullets.map((bullet) => (
+									<li key={bullet} style={styles.bulletItem}>
+										<span style={{ color: '#38bdf8' }}>▹</span>
+										<span>{bullet}</span>
+									</li>
+								))}
+							</ul>
+
+							<div style={{ marginTop: '24px' }}>
+								<button type="button" style={{ ...styles.ctaButton, padding: '12px 28px' }}>{schedule.cta}</button>
+								<p style={styles.note}>{schedule.note}</p>
+							</div>
+						</article>
+						<article style={styles.glassCard}>
+							<h3 style={{ fontSize: '22px', fontWeight: 600, marginBottom: '12px', color: '#f8fafc' }}>{leadMagnet.headline}</h3>
+							<p style={styles.muted}>{leadMagnet.description}</p>
+							<form style={styles.leadForm} onSubmit={(event) => event.preventDefault()}>
+								<label htmlFor="lead-email" style={{ display: 'none' }}>{language === 'en' ? 'Email address' : 'Endereço de e-mail'}</label>
+								<input
+									id="lead-email"
+									type="email"
+									required
+									placeholder={leadMagnet.placeholder}
+									style={styles.leadInput}
+								/>
+								<button type="submit" style={{ ...styles.ctaButton, padding: '12px 24px' }}>{leadMagnet.cta}</button>
+							</form>
+							<p style={{ ...styles.leadDisclaimer, marginTop: '12px' }}>{leadMagnet.disclaimer}</p>
+						</article>
 					</div>
 				</section>
 
