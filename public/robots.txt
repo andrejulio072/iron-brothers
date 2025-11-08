@@ -1,0 +1,5 @@
+# robots.txt for Iron Brothers
+User-agent: *
+Allow: /
+
+Sitemap: https://andrejulio072.github.io/iron-brothers/sitemap.xml
