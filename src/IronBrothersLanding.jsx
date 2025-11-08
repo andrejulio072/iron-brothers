@@ -47,17 +47,20 @@ const metrics = [
 
 const heroImages = [
 	{
-		src: 'https://images.unsplash.com/photo-1556817411-31ae72fa3ea0?auto=format&fit=crop&w=720&q=80',
+		src: '/images/hero/kettlebell-training.jpg',
+		fallback: 'https://images.unsplash.com/photo-1556817411-31ae72fa3ea0?auto=format&fit=crop&w=720&q=80',
 		alt: 'Athlete performing kettlebell swings inside an industrial gym',
 		credit: 'Photo by Danielle Cerullo on Unsplash'
 	},
 	{
-		src: 'https://images.unsplash.com/photo-1546483875-ad9014c88eba?auto=format&fit=crop&w=720&q=80',
+		src: '/images/hero/barbell-coaching.jpg',
+		fallback: 'https://images.unsplash.com/photo-1546483875-ad9014c88eba?auto=format&fit=crop&w=720&q=80',
 		alt: 'Coach guiding athlete through barbell training plan',
 		credit: 'Photo by Victor Freitas on Unsplash'
 	},
 	{
-		src: 'https://images.unsplash.com/photo-1576678927484-cc907957088c?auto=format&fit=crop&w=720&q=80',
+		src: '/images/hero/runner-stadium.jpg',
+		fallback: 'https://images.unsplash.com/photo-1576678927484-cc907957088c?auto=format&fit=crop&w=720&q=80',
 		alt: 'Runner training at dusk in a modern stadium',
 		credit: 'Photo by Jonathan Borba on Unsplash'
 	}
@@ -849,7 +852,17 @@ export default function IronBrothersLanding() {
 						<div style={styles.imageStack}>
 							{heroImages.map((image) => (
 								<figure key={image.src} style={styles.imageCard}>
-									<img src={image.src} alt={image.alt} style={styles.heroImage} loading="lazy" />
+									<img
+										src={image.src}
+										alt={image.alt}
+										style={styles.heroImage}
+										loading="lazy"
+										onError={(e) => {
+											if (image.fallback && e.target.src !== image.fallback) {
+												e.target.src = image.fallback;
+											}
+										}}
+									/>
 									<figcaption style={styles.imageCredit}>{image.credit}</figcaption>
 								</figure>
 							))}
