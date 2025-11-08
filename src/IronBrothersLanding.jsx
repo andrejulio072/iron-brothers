@@ -365,20 +365,30 @@ const scheduleCopy = {
 
 const leadMagnetCopy = {
 	en: {
-		headline: 'Download the 5-day Hybrid Performance Primer',
+		headline: 'Get Your Free Performance Blueprint',
 		description:
-			'Get a tactical training + recovery plan built for executives and hybrid athletes. Includes mobility warm-ups, strength complexes, conditioning finishers, and recovery checkpoints.',
-		placeholder: 'Enter your best email',
-		cta: 'Send me the primer',
-		disclaimer: 'By submitting you agree to receive Iron Brothers insights. No spam. Unsubscribe any time.'
+			'We will create a custom tactical roadmap based on your goals, availability, and training history. Share a few details below to unlock your personalized starter plan.',
+		fields: {
+			name: { label: 'Full name', placeholder: 'Andre Garcia' },
+			email: { label: 'Email address', placeholder: 'andre@example.com' },
+			goal: { label: 'Primary goal', placeholder: 'e.g., Drop 10kg while building strength' }
+		},
+		cta: 'Get My Blueprint',
+		disclaimer: 'By submitting you agree to receive Iron Brothers insights. No spam. Unsubscribe any time.',
+		successMessage: 'Blueprint sent! Check your inbox (and spam folder) for your personalized roadmap.'
 	},
 	pt: {
-		headline: 'Baixe o Guia de Performance Híbrida em 5 Dias',
+		headline: 'Receba Seu Blueprint de Performance Gratuito',
 		description:
-			'Receba um plano tático de treino + recuperação para executivos e atletas híbridos. Inclui aquecimentos de mobilidade, complexos de força, condicionamento finalizador e checkpoints de recuperação.',
-		placeholder: 'Digite seu melhor e-mail',
-		cta: 'Quero receber o guia',
-		disclaimer: 'Ao enviar você concorda em receber insights da Iron Brothers. Sem spam. Descadastre-se a qualquer momento.'
+			'Criaremos um plano tático personalizado com base nos seus objetivos, disponibilidade e histórico de treinos. Compartilhe alguns detalhes abaixo para desbloquear seu plano inicial.',
+		fields: {
+			name: { label: 'Nome completo', placeholder: 'Andre Garcia' },
+			email: { label: 'Endereço de e-mail', placeholder: 'andre@exemplo.com' },
+			goal: { label: 'Objetivo principal', placeholder: 'ex: Perder 10kg enquanto ganho força' }
+		},
+		cta: 'Receber Meu Blueprint',
+		disclaimer: 'Ao enviar você concorda em receber insights da Iron Brothers. Sem spam. Descadastre-se a qualquer momento.',
+		successMessage: 'Blueprint enviado! Confira sua caixa de entrada (e spam) para seu plano personalizado.'
 	}
 };
 
@@ -791,6 +801,41 @@ const styles = {
 
 export default function IronBrothersLanding() {
 	const [language, setLanguage] = useState('en');
+	const [formData, setFormData] = useState({ name: '', email: '', goal: '' });
+	const [formSubmitted, setFormSubmitted] = useState(false);
+	const [formError, setFormError] = useState('');
+
+	const handleLeadFormSubmit = (event) => {
+		event.preventDefault();
+		setFormError('');
+
+		// Basic validation
+		if (!formData.name || !formData.email || !formData.goal) {
+			setFormError(language === 'en' ? 'Please fill in all fields.' : 'Por favor, preencha todos os campos.');
+			return;
+		}
+
+		// Email validation
+		const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+		if (!emailRegex.test(formData.email)) {
+			setFormError(language === 'en' ? 'Please enter a valid email address.' : 'Por favor, insira um endereço de e-mail válido.');
+			return;
+		}
+
+		// TODO: Replace with actual CRM webhook (Formspree, Zapier, or custom endpoint)
+		console.log('Lead capture:', formData);
+
+		setFormSubmitted(true);
+		setFormData({ name: '', email: '', goal: '' });
+
+		// Reset success message after 5 seconds
+		setTimeout(() => setFormSubmitted(false), 5000);
+	};
+
+	const handleInputChange = (field, value) => {
+		setFormData((prev) => ({ ...prev, [field]: value }));
+		setFormError('');
+	};
 	const hero = useMemo(() => heroCopy[language], [language]);
 	const cta = useMemo(() => ctaCopy[language], [language]);
 	const schedule = useMemo(() => scheduleCopy[language], [language]);
@@ -1126,17 +1171,78 @@ export default function IronBrothersLanding() {
 						<article style={styles.glassCard}>
 							<h3 style={{ fontSize: '22px', fontWeight: 600, marginBottom: '12px', color: '#f8fafc' }}>{leadMagnet.headline}</h3>
 							<p style={styles.muted}>{leadMagnet.description}</p>
-							<form style={styles.leadForm} onSubmit={(event) => event.preventDefault()}>
-								<label htmlFor="lead-email" style={{ display: 'none' }}>{language === 'en' ? 'Email address' : 'Endereço de e-mail'}</label>
-								<input
-									id="lead-email"
-									type="email"
-									required
-									placeholder={leadMagnet.placeholder}
-									style={styles.leadInput}
-								/>
-								<button type="submit" style={{ ...styles.ctaButton, padding: '12px 24px' }}>{leadMagnet.cta}</button>
-							</form>
+
+							{formSubmitted ? (
+								<div
+									style={{
+										padding: '18px',
+										background: 'rgba(34, 197, 94, 0.15)',
+										border: '1px solid rgba(34, 197, 94, 0.3)',
+										borderRadius: '12px',
+										marginTop: '18px'
+									}}
+								>
+									<p style={{ color: '#86efac', fontWeight: 500 }}>{leadMagnet.successMessage}</p>
+								</div>
+							) : (
+								<form style={styles.leadForm} onSubmit={handleLeadFormSubmit}>
+									<div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+										<div>
+											<label htmlFor="lead-name" style={{ display: 'block', marginBottom: '6px', fontSize: '14px', color: '#cbd5e1' }}>
+												{leadMagnet.fields.name.label}
+											</label>
+											<input
+												id="lead-name"
+												type="text"
+												required
+												value={formData.name}
+												onChange={(e) => handleInputChange('name', e.target.value)}
+												placeholder={leadMagnet.fields.name.placeholder}
+												style={styles.leadInput}
+											/>
+										</div>
+
+										<div>
+											<label htmlFor="lead-email" style={{ display: 'block', marginBottom: '6px', fontSize: '14px', color: '#cbd5e1' }}>
+												{leadMagnet.fields.email.label}
+											</label>
+											<input
+												id="lead-email"
+												type="email"
+												required
+												value={formData.email}
+												onChange={(e) => handleInputChange('email', e.target.value)}
+												placeholder={leadMagnet.fields.email.placeholder}
+												style={styles.leadInput}
+											/>
+										</div>
+
+										<div>
+											<label htmlFor="lead-goal" style={{ display: 'block', marginBottom: '6px', fontSize: '14px', color: '#cbd5e1' }}>
+												{leadMagnet.fields.goal.label}
+											</label>
+											<input
+												id="lead-goal"
+												type="text"
+												required
+												value={formData.goal}
+												onChange={(e) => handleInputChange('goal', e.target.value)}
+												placeholder={leadMagnet.fields.goal.placeholder}
+												style={styles.leadInput}
+											/>
+										</div>
+									</div>
+
+									{formError && (
+										<p style={{ color: '#fca5a5', fontSize: '14px', marginTop: '8px' }}>{formError}</p>
+									)}
+
+									<button type="submit" style={{ ...styles.ctaButton, padding: '12px 24px', marginTop: '16px', width: '100%' }}>
+										{leadMagnet.cta}
+									</button>
+								</form>
+							)}
+
 							<p style={{ ...styles.leadDisclaimer, marginTop: '12px' }}>{leadMagnet.disclaimer}</p>
 						</article>
 					</div>
