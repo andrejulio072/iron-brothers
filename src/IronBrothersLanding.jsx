@@ -339,26 +339,24 @@ const scheduleCopy = {
 	en: {
 		title: 'Book your strategic discovery call',
 		subtitle:
-			'Lock in a 30-minute virtual session to map goals, availability, and the high-performance infrastructure you need. Calendly integration is coming next; join the queue now.',
+			'Lock in a 30-minute virtual session to map goals, availability, and the high-performance infrastructure you need. Use the Calendly link below to secure your slot.',
 		bullets: [
 			'Pre-call intake covering lifestyle, training age, and time constraints',
 			'Collaborative roadmap outlining hybrid training phases and accountability cadence',
 			'Clarity on which Iron Brothers program tier accelerates your goals'
 		],
-		cta: 'Notify me when scheduling opens',
-		note: 'You will be the first to know when the Calendly portal goes live so you can secure priority slots.'
+		note: 'Discovery calls are complimentary and commitment-free. Book now to secure priority slots.'
 	},
 	pt: {
 		title: 'Agende sua call estratégica de descoberta',
 		subtitle:
-			'Reserve uma sessão virtual de 30 minutos para mapear objetivos, disponibilidade e a infraestrutura de alta performance que você precisa. Integração com Calendly chega em breve; entre na fila agora.',
+			'Reserve uma sessão virtual de 30 minutos para mapear objetivos, disponibilidade e a infraestrutura de alta performance que você precisa. Use o link Calendly abaixo para garantir sua vaga.',
 		bullets: [
 			'Pré-call cobrindo rotina, histórico de treinos e restrições de agenda',
 			'Plano colaborativo destacando fases de treino híbrido e cadência de accountability',
 			'Clareza sobre qual plano Iron Brothers acelera seus resultados'
 		],
-		cta: 'Avise quando abrir scheduling',
-		note: 'Você será avisado em primeira mão quando o portal Calendly estiver no ar para garantir horários prioritários.'
+		note: 'As calls de descoberta são gratuitas e sem compromisso. Agende agora e garanta horários prioritários.'
 	}
 };
 
@@ -1096,7 +1094,19 @@ export default function IronBrothersLanding() {
 							</ul>
 
 							<div style={{ marginTop: '24px' }}>
-								<button type="button" style={{ ...styles.ctaButton, padding: '12px 28px' }}>{schedule.cta}</button>
+								<a
+									href="https://calendly.com/iron-brothers/discovery"
+									target="_blank"
+									rel="noopener noreferrer"
+									style={{
+										...styles.ctaButton,
+										padding: '12px 28px',
+										display: 'inline-block',
+										textDecoration: 'none'
+									}}
+								>
+									{language === 'en' ? 'Book Your Discovery Call' : 'Agende sua Call de Descoberta'}
+								</a>
 								<p style={styles.note}>{schedule.note}</p>
 							</div>
 						</article>
