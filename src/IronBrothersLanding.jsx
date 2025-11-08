@@ -6,33 +6,35 @@ const navItems = [
 	{ id: 'results', label: { en: 'Results', pt: 'Resultados' } },
 	{ id: 'pricing', label: { en: 'Pricing', pt: 'Planos' } },
 	{ id: 'testimonials', label: { en: 'Testimonials', pt: 'Depoimentos' } },
+	{ id: 'shop', label: { en: 'Shop', pt: 'Loja' } },
+	{ id: 'schedule', label: { en: 'Schedule', pt: 'Agenda' } },
 	{ id: 'faq', label: { en: 'FAQ', pt: 'Perguntas' } }
 ];
 
 const heroCopy = {
 	en: {
-		title: 'Future-proof coaching for relentless athletes.',
+		title: 'High-performance coaching for driven leaders and hybrid athletes.',
 		subtitle:
-			'Iron Brothers delivers elite hybrid training with battle-tested programming, data-driven feedback loops, and human accountability that keeps you closing the gap between today and your podium goals.',
+			'Bespoke protocols empower founders, executives, and competitive athletes to drop 10kg in 12 weeks while stacking measurable strength, endurance, and resilience.',
 		highlights: [
-			'Remote-first with in-person intensives in São Paulo and Miami',
-			'Dedicated strategist, recovery audits, and performance nutrition built-in',
-			'Structured for entrepreneurs, executives, and competitive athletes'
+			'Adaptive periodization that flexes with board meetings, travel, and competition calendars',
+			'Daily accountability with strategist check-ins, biofeedback audits, and recovery architecture',
+			'In-person intensives in São Paulo and Dublin paired with remote performance labs'
 		],
 		primaryCta: 'Start Your Application',
-		secondaryCta: 'Schedule a Discovery Call'
+		secondaryCta: 'Book a 15-Minute Call'
 	},
 	pt: {
-		title: 'Treinamento de próxima geração para atletas incansáveis.',
+		title: 'Coaching de alta performance para líderes e atletas híbridos.',
 		subtitle:
-			'A Iron Brothers oferece coaching híbrido de alto nível com programação validada, feedback guiado por dados e responsabilidade humana para acelerar seus resultados dentro e fora das competições.',
+			'Protocolos sob medida para fundadores, executivos e atletas competitivos perderem 10kg em 12 semanas enquanto elevam força, endurance e resiliência mensuráveis.',
 		highlights: [
-			'Remoto por padrão com imersões presenciais em São Paulo e Miami',
-			'Estrategista dedicado, auditorias de recuperação e nutrição de performance inclusos',
-			'Estrutura ideal para empreendedores, executivos e atletas competitivos'
+			'Periodização adaptativa que respeita reuniões, viagens e calendário de competições',
+			'Accountability diária com check-ins do estrategista, auditorias de biofeedback e arquitetura de recuperação',
+			'Imersões presenciais em São Paulo e Dublin combinadas com laboratórios de performance remotos'
 		],
 		primaryCta: 'Iniciar Aplicação',
-		secondaryCta: 'Agende uma Conversa'
+		secondaryCta: 'Agende uma Call de 15 Minutos'
 	}
 };
 
@@ -45,17 +47,20 @@ const metrics = [
 
 const heroImages = [
 	{
-		src: 'https://images.unsplash.com/photo-1556817411-31ae72fa3ea0?auto=format&fit=crop&w=720&q=80',
+		src: '/images/hero/kettlebell-training.jpg',
+		fallback: 'https://images.unsplash.com/photo-1556817411-31ae72fa3ea0?auto=format&fit=crop&w=720&q=80',
 		alt: 'Athlete performing kettlebell swings inside an industrial gym',
 		credit: 'Photo by Danielle Cerullo on Unsplash'
 	},
 	{
-		src: 'https://images.unsplash.com/photo-1546483875-ad9014c88eba?auto=format&fit=crop&w=720&q=80',
+		src: '/images/hero/barbell-coaching.jpg',
+		fallback: 'https://images.unsplash.com/photo-1546483875-ad9014c88eba?auto=format&fit=crop&w=720&q=80',
 		alt: 'Coach guiding athlete through barbell training plan',
 		credit: 'Photo by Victor Freitas on Unsplash'
 	},
 	{
-		src: 'https://images.unsplash.com/photo-1576678927484-cc907957088c?auto=format&fit=crop&w=720&q=80',
+		src: '/images/hero/runner-stadium.jpg',
+		fallback: 'https://images.unsplash.com/photo-1576678927484-cc907957088c?auto=format&fit=crop&w=720&q=80',
 		alt: 'Runner training at dusk in a modern stadium',
 		credit: 'Photo by Jonathan Borba on Unsplash'
 	}
@@ -156,27 +161,41 @@ const programs = [
 
 const coaches = [
 	{
-		name: 'Leonardo Monteiro',
-		role: { en: 'Head Performance Strategist', pt: 'Estrategista-chefe de Performance' },
+		name: 'Andre Garcia',
+		role: { en: 'Hybrid Performance Architect', pt: 'Arquiteto de Performance Híbrida' },
 		bio: {
-			en: 'Former pro thrower turned hybrid coach. Oversees methodology, data analytics, and game-day execution plans for elite rosters.',
-			pt: 'Ex-atleta profissional de arremesso. Lidera metodologia, análise de dados e planos de execução em competição para o roster elite.'
+			en: 'Founder of Garcia Builder and co-creator of Iron Brothers methodology. Andre engineers bespoke training and recovery ecosystems for high-performing executives and athletes who demand measurable outcomes without compromising their careers.',
+			pt: 'Fundador da Garcia Builder e cocriador da metodologia Iron Brothers. Andre projeta ecossistemas de treino e recuperação sob medida para executivos e atletas de alto nível que buscam resultados mensuráveis sem sacrificar suas carreiras.'
+		},
+		specialties: {
+			en: ['Executive body recomposition', 'Hybrid strength & conditioning periodization', 'Performance leadership coaching'],
+			pt: ['Recomposição corporal para executivos', 'Periodização híbrida de força e condicionamento', 'Coaching de liderança em performance']
+		},
+		link: 'https://www.garciabuilder.fitness',
+		linkLabel: { en: 'Visit Garcia Builder', pt: 'Visitar Garcia Builder' }
+	},
+	{
+		name: 'Lucas Gabriel',
+		role: { en: 'Metabolic Performance Coach', pt: 'Coach de Performance Metabólica' },
+		bio: {
+			en: 'Lucas leads metabolic diagnostics and on-the-ground intensives. He blends sports science with practical accountability routines that keep founders and athletes consistent during demanding seasons.',
+			pt: 'Lucas lidera diagnósticos metabólicos e imersões presenciais. Ele combina ciência do esporte com rotinas práticas de accountability que mantêm fundadores e atletas consistentes em temporadas exigentes.'
+		},
+		specialties: {
+			en: ['Metabolic testing & nutrition periodization', 'Competition prep camps in São Paulo and Dublin', 'Habit architecture for busy travel schedules'],
+			pt: ['Testes metabólicos e periodização nutricional', 'Camps de preparação em São Paulo e Dublin', 'Arquitetura de hábitos para agendas intensas de viagens']
 		}
 	},
 	{
-		name: 'Ana Ribeiro',
-		role: { en: 'Strength and Biomechanics Lead', pt: 'Líder de Força e Biomecânica' },
+		name: 'Specialist Collective',
+		role: { en: 'Medical & recovery partners', pt: 'Rede médica e de recuperação' },
 		bio: {
-			en: 'Masters in kinesiology with a decade coaching weightlifting and CrossFit Games hopefuls. Focus on technical economy and durability.',
-			pt: 'Mestre em cinesiologia com dez anos treinando halterofilismo e atletas rumo ao CrossFit Games. Foco em economia técnica e longevidade.'
-		}
-	},
-	{
-		name: 'Daniel Costa',
-		role: { en: 'Endurance Architect', pt: 'Arquiteto de Endurance' },
-		bio: {
-			en: 'Builds aerobic engines for triathletes and functional athletes, blending lab testing with field work for consistent breakthroughs.',
-			pt: 'Constrói motores aeróbicos para triatletas e atletas funcionais, combinando testes laboratoriais e práticas em campo.'
+			en: 'A curated network of physiotherapists, sports physicians, and mindset coaches who plug into client roadmaps as needed for diagnostics, rehab, and high-stakes competition phases.',
+			pt: 'Rede selecionada de fisioterapeutas, médicos do esporte e coaches de mindset que entram nos planos dos clientes conforme necessário para diagnósticos, reabilitação e fases de competição de alto nível.'
+		},
+		specialties: {
+			en: ['Force-plate and HRV analytics', 'Integrated recovery protocols', 'Mindset performance labs'],
+			pt: ['Análises de plataforma de força e HRV', 'Protocolos de recuperação integrados', 'Labs de performance mental']
 		}
 	}
 ];
@@ -318,6 +337,85 @@ const faqs = [
 		}
 	}
 ];
+
+const scheduleCopy = {
+	en: {
+		title: 'Book your strategic discovery call',
+		subtitle:
+			'Lock in a 30-minute virtual session to map goals, availability, and the high-performance infrastructure you need. Use the Calendly link below to secure your slot.',
+		bullets: [
+			'Pre-call intake covering lifestyle, training age, and time constraints',
+			'Collaborative roadmap outlining hybrid training phases and accountability cadence',
+			'Clarity on which Iron Brothers program tier accelerates your goals'
+		],
+		note: 'Discovery calls are complimentary and commitment-free. Book now to secure priority slots.'
+	},
+	pt: {
+		title: 'Agende sua call estratégica de descoberta',
+		subtitle:
+			'Reserve uma sessão virtual de 30 minutos para mapear objetivos, disponibilidade e a infraestrutura de alta performance que você precisa. Use o link Calendly abaixo para garantir sua vaga.',
+		bullets: [
+			'Pré-call cobrindo rotina, histórico de treinos e restrições de agenda',
+			'Plano colaborativo destacando fases de treino híbrido e cadência de accountability',
+			'Clareza sobre qual plano Iron Brothers acelera seus resultados'
+		],
+		note: 'As calls de descoberta são gratuitas e sem compromisso. Agende agora e garanta horários prioritários.'
+	}
+};
+
+const leadMagnetCopy = {
+	en: {
+		headline: 'Get Your Free Performance Blueprint',
+		description:
+			'We will create a custom tactical roadmap based on your goals, availability, and training history. Share a few details below to unlock your personalized starter plan.',
+		fields: {
+			name: { label: 'Full name', placeholder: 'Andre Garcia' },
+			email: { label: 'Email address', placeholder: 'andre@example.com' },
+			goal: { label: 'Primary goal', placeholder: 'e.g., Drop 10kg while building strength' }
+		},
+		cta: 'Get My Blueprint',
+		disclaimer: 'By submitting you agree to receive Iron Brothers insights. No spam. Unsubscribe any time.',
+		successMessage: 'Blueprint sent! Check your inbox (and spam folder) for your personalized roadmap.'
+	},
+	pt: {
+		headline: 'Receba Seu Blueprint de Performance Gratuito',
+		description:
+			'Criaremos um plano tático personalizado com base nos seus objetivos, disponibilidade e histórico de treinos. Compartilhe alguns detalhes abaixo para desbloquear seu plano inicial.',
+		fields: {
+			name: { label: 'Nome completo', placeholder: 'Andre Garcia' },
+			email: { label: 'Endereço de e-mail', placeholder: 'andre@exemplo.com' },
+			goal: { label: 'Objetivo principal', placeholder: 'ex: Perder 10kg enquanto ganho força' }
+		},
+		cta: 'Receber Meu Blueprint',
+		disclaimer: 'Ao enviar você concorda em receber insights da Iron Brothers. Sem spam. Descadastre-se a qualquer momento.',
+		successMessage: 'Blueprint enviado! Confira sua caixa de entrada (e spam) para seu plano personalizado.'
+	}
+};
+
+const shopPreview = {
+	en: {
+		title: 'Iron Brothers Store (Coming Soon)',
+		subtitle:
+			'Curated gear, program bundles, and recovery essentials designed with the same high standards as our coaching experience. Integrated Shopify checkout launches soon.',
+		items: [
+			{ name: 'Hybrid Performance Starter Kit', detail: 'Mobility tools, premium straps, and programming companion workbook.' },
+			{ name: 'Executive Fuel Bundle', detail: 'Clinically-backed supplements and nutrition frameworks for travel-heavy weeks.' },
+			{ name: 'Signature Apparel Drop', detail: 'Limited-run technical wear co-created with Iron Brothers athletes.' }
+		],
+		note: 'Join the waitlist to receive early access and launch-day bonuses.'
+	},
+	pt: {
+		title: 'Loja Iron Brothers (Em Breve)',
+		subtitle:
+			'Equipamentos selecionados, pacotes de programas e essenciais de recuperação com o mesmo nível de excelência do nosso coaching. Checkout via Shopify disponível em breve.',
+		items: [
+			{ name: 'Kit Performance Híbrida', detail: 'Ferramentas de mobilidade, straps premium e workbook de programação.' },
+			{ name: 'Combo Energia Executiva', detail: 'Suplementos com respaldo clínico e frameworks nutricionais para semanas de viagem.' },
+			{ name: 'Drop de Apparel Assinatura', detail: 'Vestuário técnico em tiragem limitada cocriado com atletas Iron Brothers.' }
+		],
+		note: 'Entre na lista de espera para receber acesso antecipado e bônus de lançamento.'
+	}
+};
 
 const ctaCopy = {
 	en: {
@@ -555,6 +653,12 @@ const styles = {
 		gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
 		gap: '24px'
 	},
+	splitSection: {
+		display: 'grid',
+		gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+		gap: '28px',
+		alignItems: 'flex-start'
+	},
 	glassCard: {
 		background: 'rgba(15, 23, 42, 0.72)',
 		border: '1px solid rgba(148, 163, 184, 0.25)',
@@ -570,6 +674,11 @@ const styles = {
 		display: 'flex',
 		flexDirection: 'column',
 		gap: '12px'
+	},
+	bulletItem: {
+		display: 'flex',
+		gap: '10px',
+		color: 'rgba(226, 232, 240, 0.9)'
 	},
 	muted: {
 		color: 'rgba(148, 163, 184, 0.8)',
@@ -646,6 +755,31 @@ const styles = {
 		fontWeight: 500,
 		cursor: 'pointer'
 	},
+	leadForm: {
+		display: 'flex',
+		flexDirection: 'column',
+		gap: '12px',
+		marginTop: '20px'
+	},
+	leadInput: {
+		background: 'rgba(15, 23, 42, 0.7)',
+		border: '1px solid rgba(148, 163, 184, 0.35)',
+		borderRadius: '12px',
+		padding: '12px 16px',
+		color: '#f8fafc',
+		fontSize: '14px'
+	},
+	leadDisclaimer: {
+		color: 'rgba(148, 163, 184, 0.75)',
+		fontSize: '12px',
+		lineHeight: 1.5
+	},
+	note: {
+		color: 'rgba(148, 163, 184, 0.85)',
+		fontSize: '14px',
+		marginTop: '18px',
+		lineHeight: 1.6
+	},
 	footer: {
 		marginTop: '80px',
 		paddingTop: '32px',
@@ -667,8 +801,46 @@ const styles = {
 
 export default function IronBrothersLanding() {
 	const [language, setLanguage] = useState('en');
+	const [formData, setFormData] = useState({ name: '', email: '', goal: '' });
+	const [formSubmitted, setFormSubmitted] = useState(false);
+	const [formError, setFormError] = useState('');
+
+	const handleLeadFormSubmit = (event) => {
+		event.preventDefault();
+		setFormError('');
+
+		// Basic validation
+		if (!formData.name || !formData.email || !formData.goal) {
+			setFormError(language === 'en' ? 'Please fill in all fields.' : 'Por favor, preencha todos os campos.');
+			return;
+		}
+
+		// Email validation
+		const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+		if (!emailRegex.test(formData.email)) {
+			setFormError(language === 'en' ? 'Please enter a valid email address.' : 'Por favor, insira um endereço de e-mail válido.');
+			return;
+		}
+
+		// TODO: Replace with actual CRM webhook (Formspree, Zapier, or custom endpoint)
+		console.log('Lead capture:', formData);
+
+		setFormSubmitted(true);
+		setFormData({ name: '', email: '', goal: '' });
+
+		// Reset success message after 5 seconds
+		setTimeout(() => setFormSubmitted(false), 5000);
+	};
+
+	const handleInputChange = (field, value) => {
+		setFormData((prev) => ({ ...prev, [field]: value }));
+		setFormError('');
+	};
 	const hero = useMemo(() => heroCopy[language], [language]);
 	const cta = useMemo(() => ctaCopy[language], [language]);
+	const schedule = useMemo(() => scheduleCopy[language], [language]);
+	const leadMagnet = useMemo(() => leadMagnetCopy[language], [language]);
+	const shop = useMemo(() => shopPreview[language], [language]);
 	const footer = useMemo(() => footerCopy[language], [language]);
 
 	return (
@@ -725,7 +897,17 @@ export default function IronBrothersLanding() {
 						<div style={styles.imageStack}>
 							{heroImages.map((image) => (
 								<figure key={image.src} style={styles.imageCard}>
-									<img src={image.src} alt={image.alt} style={styles.heroImage} loading="lazy" />
+									<img
+										src={image.src}
+										alt={image.alt}
+										style={styles.heroImage}
+										loading="lazy"
+										onError={(e) => {
+											if (image.fallback && e.target.src !== image.fallback) {
+												e.target.src = image.fallback;
+											}
+										}}
+									/>
 									<figcaption style={styles.imageCredit}>{image.credit}</figcaption>
 								</figure>
 							))}
@@ -822,6 +1004,27 @@ export default function IronBrothersLanding() {
 								<h3 style={{ fontSize: '20px', fontWeight: 600, marginBottom: '6px', color: '#e2e8f0' }}>{coach.name}</h3>
 								<p style={{ ...styles.muted, marginBottom: '14px' }}>{coach.role[language]}</p>
 								<p style={styles.muted}>{coach.bio[language]}</p>
+								{coach.specialties && (
+									<ul style={{ ...styles.list, marginTop: '16px' }}>
+										{coach.specialties[language].map((item) => (
+											<li key={item} style={{ display: 'flex', gap: '10px', color: 'rgba(226, 232, 240, 0.88)' }}>
+												<span style={{ color: '#38bdf8' }}>▹</span>
+												<span>{item}</span>
+											</li>
+										))}
+									</ul>
+								)}
+								{coach.link && (
+									<a
+										href={coach.link}
+										target="_blank"
+										rel="noopener noreferrer"
+										style={{ ...styles.secondaryButton, marginTop: '20px', display: 'inline-flex', alignItems: 'center', gap: '6px' }}
+									>
+										<span>{coach.linkLabel ? coach.linkLabel[language] : language === 'en' ? 'Learn more' : 'Saiba mais'}</span>
+										<span aria-hidden="true">↗</span>
+									</a>
+								)}
 							</div>
 						))}
 					</div>
@@ -903,6 +1106,145 @@ export default function IronBrothersLanding() {
 								<p style={styles.muted}>{testimonial.role[language]}</p>
 							</article>
 						))}
+					</div>
+				</section>
+
+				<section style={styles.section} id="shop">
+					<div style={styles.sectionHeader}>
+						<span style={styles.sectionLabel}>{language === 'en' ? 'Store' : 'Loja'}</span>
+						<h2 style={styles.sectionTitle}>{shop.title}</h2>
+						<p style={styles.sectionSubtitle}>{shop.subtitle}</p>
+					</div>
+					<div style={styles.cardGrid}>
+						{shop.items.map((item) => (
+							<article key={item.name} style={styles.glassCard}>
+								<h3 style={{ fontSize: '20px', fontWeight: 600, marginBottom: '10px', color: '#f8fafc' }}>{item.name}</h3>
+								<p style={styles.muted}>{item.detail}</p>
+							</article>
+						))}
+					</div>
+					<div style={{ marginTop: '28px', textAlign: 'center' }}>
+						<button type="button" style={{ ...styles.ctaButton, padding: '12px 28px' }}>
+							{language === 'en' ? 'Join the waitlist' : 'Entrar na lista de espera'}
+						</button>
+						<p style={{ ...styles.muted, marginTop: '12px' }}>{shop.note}</p>
+					</div>
+				</section>
+
+				<section style={styles.section} id="schedule">
+					<div style={styles.sectionHeader}>
+						<span style={styles.sectionLabel}>{language === 'en' ? 'Schedule' : 'Agenda'}</span>
+						<h2 style={styles.sectionTitle}>{schedule.title}</h2>
+						<p style={styles.sectionSubtitle}>{schedule.subtitle}</p>
+					</div>
+					<div style={styles.splitSection}>
+						<article style={styles.glassCard}>
+							<h3 style={{ fontSize: '20px', fontWeight: 600, marginBottom: '14px', color: '#f8fafc' }}>
+								{language === 'en' ? 'What to expect' : 'O que esperar'}
+							</h3>
+							<ul style={styles.list}>
+								{schedule.bullets.map((bullet) => (
+									<li key={bullet} style={styles.bulletItem}>
+										<span style={{ color: '#38bdf8' }}>▹</span>
+										<span>{bullet}</span>
+									</li>
+								))}
+							</ul>
+
+							<div style={{ marginTop: '24px' }}>
+								<a
+									href="https://calendly.com/iron-brothers/discovery"
+									target="_blank"
+									rel="noopener noreferrer"
+									style={{
+										...styles.ctaButton,
+										padding: '12px 28px',
+										display: 'inline-block',
+										textDecoration: 'none'
+									}}
+								>
+									{language === 'en' ? 'Book Your Discovery Call' : 'Agende sua Call de Descoberta'}
+								</a>
+								<p style={styles.note}>{schedule.note}</p>
+							</div>
+						</article>
+						<article style={styles.glassCard}>
+							<h3 style={{ fontSize: '22px', fontWeight: 600, marginBottom: '12px', color: '#f8fafc' }}>{leadMagnet.headline}</h3>
+							<p style={styles.muted}>{leadMagnet.description}</p>
+
+							{formSubmitted ? (
+								<div
+									style={{
+										padding: '18px',
+										background: 'rgba(34, 197, 94, 0.15)',
+										border: '1px solid rgba(34, 197, 94, 0.3)',
+										borderRadius: '12px',
+										marginTop: '18px'
+									}}
+								>
+									<p style={{ color: '#86efac', fontWeight: 500 }}>{leadMagnet.successMessage}</p>
+								</div>
+							) : (
+								<form style={styles.leadForm} onSubmit={handleLeadFormSubmit}>
+									<div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+										<div>
+											<label htmlFor="lead-name" style={{ display: 'block', marginBottom: '6px', fontSize: '14px', color: '#cbd5e1' }}>
+												{leadMagnet.fields.name.label}
+											</label>
+											<input
+												id="lead-name"
+												type="text"
+												required
+												value={formData.name}
+												onChange={(e) => handleInputChange('name', e.target.value)}
+												placeholder={leadMagnet.fields.name.placeholder}
+												style={styles.leadInput}
+											/>
+										</div>
+
+										<div>
+											<label htmlFor="lead-email" style={{ display: 'block', marginBottom: '6px', fontSize: '14px', color: '#cbd5e1' }}>
+												{leadMagnet.fields.email.label}
+											</label>
+											<input
+												id="lead-email"
+												type="email"
+												required
+												value={formData.email}
+												onChange={(e) => handleInputChange('email', e.target.value)}
+												placeholder={leadMagnet.fields.email.placeholder}
+												style={styles.leadInput}
+											/>
+										</div>
+
+										<div>
+											<label htmlFor="lead-goal" style={{ display: 'block', marginBottom: '6px', fontSize: '14px', color: '#cbd5e1' }}>
+												{leadMagnet.fields.goal.label}
+											</label>
+											<input
+												id="lead-goal"
+												type="text"
+												required
+												value={formData.goal}
+												onChange={(e) => handleInputChange('goal', e.target.value)}
+												placeholder={leadMagnet.fields.goal.placeholder}
+												style={styles.leadInput}
+											/>
+										</div>
+									</div>
+
+									{formError && (
+										<p style={{ color: '#fca5a5', fontSize: '14px', marginTop: '8px' }}>{formError}</p>
+									)}
+
+									<button type="submit" style={{ ...styles.ctaButton, padding: '12px 24px', marginTop: '16px', width: '100%' }}>
+										{leadMagnet.cta}
+									</button>
+								</form>
+							)}
+
+							<p style={{ ...styles.leadDisclaimer, marginTop: '12px' }}>{leadMagnet.disclaimer}</p>
+						</article>
 					</div>
 				</section>
 
