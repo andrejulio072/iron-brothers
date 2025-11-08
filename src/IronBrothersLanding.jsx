@@ -59,6 +59,72 @@ const MetricValue = ({ value }) => {
 	return <div style={{ fontSize: '34px', fontWeight: 700, color: '#60a5fa', marginBottom: '6px' }}>{display}</div>;
 };
 
+// Interactive button with subtle hover glow
+const InteractiveButton = ({ variant = 'primary', children, onClick, style = {} }) => {
+	const [hover, setHover] = useState(false);
+	const base = variant === 'primary' ? {
+		background: 'linear-gradient(90deg, #60a5fa, #a855f7)',
+		color: '#0f172a',
+	} : {
+		background: 'rgba(15, 23, 42, 0.7)',
+		color: '#e2e8f0',
+		border: '1px solid rgba(148, 163, 184, 0.35)'
+	};
+	const glow = hover
+		? (variant === 'primary' ? '0 18px 40px rgba(96,165,250,0.45)' : '0 10px 26px rgba(15,23,42,0.55)')
+		: (variant === 'primary' ? '0 10px 24px rgba(96,165,250,0.35)' : '0 6px 18px rgba(15,23,42,0.45)');
+	return (
+		<button
+			type="button"
+			onClick={onClick}
+			onMouseEnter={() => setHover(true)}
+			onMouseLeave={() => setHover(false)}
+			style={{
+				border: 'none',
+				borderRadius: '999px',
+				padding: '12px 26px',
+				fontSize: 14,
+				fontWeight: 600,
+				cursor: 'pointer',
+				boxShadow: glow,
+				transition: 'box-shadow 220ms ease, transform 120ms ease',
+				transform: hover ? 'translateY(-1px)' : 'translateY(0)',
+				...base,
+				...style,
+			}}
+		>
+			{children}
+		</button>
+	);
+};
+
+// Parallax hook for subtle vertical motion
+const useParallax = (multiplier = 0.12) => {
+	const ref = useRef(null);
+	useEffect(() => {
+		if (typeof window === 'undefined') return;
+		const el = ref.current;
+		if (!el) return;
+		let rafId;
+		const onScroll = () => {
+			cancelAnimationFrame(rafId);
+			rafId = requestAnimationFrame(() => {
+				const rect = el.getBoundingClientRect();
+				const center = rect.top + rect.height / 2 - window.innerHeight / 2;
+				const translate = center * -multiplier;
+				el.style.transform = `translateY(${translate.toFixed(1)}px)`;
+			});
+		};
+		onScroll();
+		window.addEventListener('scroll', onScroll, { passive: true });
+		return () => {
+			window.removeEventListener('scroll', onScroll);
+			cancelAnimationFrame(rafId);
+		};
+	}, [multiplier]);
+	return ref;
+};
+
 const navItems = [
 	{ id: 'programs', label: { en: 'Programs', pt: 'Programas' } },
 	{ id: 'coaches', label: { en: 'Coaches', pt: 'Treinadores' } },
@@ -859,6 +925,7 @@ const styles = {
 
 export default function IronBrothersLanding() {
 	const [language, setLanguage] = useState('en');
+	const [showMore, setShowMore] = useState(false);
 	const [formData, setFormData] = useState({ name: '', email: '', goal: '' });
 	const [formSubmitted, setFormSubmitted] = useState(false);
 	const [formError, setFormError] = useState('');
@@ -920,16 +987,16 @@ export default function IronBrothersLanding() {
 						))}
 					</ul>
 					<div style={styles.navActions}>
-						<button
-							type="button"
-							style={styles.toggleButton}
+						<InteractiveButton
+							variant="secondary"
 							onClick={() => setLanguage((prev) => (prev === 'en' ? 'pt' : 'en'))}
+							style={{ padding: '10px 20px' }}
 						>
 							{language === 'en' ? 'Português' : 'English'}
-						</button>
-						<button type="button" style={styles.ctaButton}>
+						</InteractiveButton>
+						<InteractiveButton variant="primary">
 							{language === 'en' ? 'Apply Now' : 'Aplicar Agora'}
-						</button>
+						</InteractiveButton>
 					</div>
 				</nav>
 
@@ -954,7 +1021,7 @@ export default function IronBrothersLanding() {
 							</button>
 						</div>
 					</div>
-					<div style={styles.heroVisuals}>
+					<div style={styles.heroVisuals} ref={useParallax(0.08)}>
 						<div style={styles.imageStack}>
 							{heroImages.map((image) => (
 								<figure key={image.src} style={styles.imageCard}>
@@ -1024,25 +1091,44 @@ export default function IronBrothersLanding() {
 								: 'Um olhar selecionado sobre ambientes, ferramentas e a cultura de execução que impulsiona avanços de temporada.'}
 						</p>
 					</div>
-					<div style={{ display: 'grid', gap: '18px', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))' }}>
-						{[
+					{(() => {
+						const baseImages = [
 							'https://images.unsplash.com/photo-1579758629934-035aa3d1df7c?auto=format&fit=crop&w=800&q=80',
 							'https://images.unsplash.com/photo-1507537297725-24a1c029d3ca?auto=format&fit=crop&w=800&q=80',
 							'https://images.unsplash.com/photo-1605296867304-46d5465a13f1?auto=format&fit=crop&w=800&q=80',
 							'https://images.unsplash.com/photo-1526401485004-2aa7e6b66f79?auto=format&fit=crop&w=800&q=80',
 							'https://images.unsplash.com/photo-1616279969855-c3eac3078297?auto=format&fit=crop&w=800&q=80',
 							'https://images.unsplash.com/photo-1555680202-23c69772c0f9?auto=format&fit=crop&w=800&q=80'
-						].map((url, i) => (
-							<Reveal key={url} delay={i * 70} style={{ position: 'relative', borderRadius: '18px', overflow: 'hidden', border: '1px solid rgba(148,163,184,0.25)', boxShadow: '0 16px 40px rgba(9,15,29,0.4)' }}>
-								<img
-									src={url}
-									alt={language === 'en' ? 'Gallery image' : 'Imagem da galeria'}
-									style={{ width: '100%', height: '220px', objectFit: 'cover', filter: 'brightness(0.92) saturate(1.15)' }}
-									loading="lazy"
-								/>
-								<div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(15,23,42,0.65), rgba(15,23,42,0.15))' }} />
-							</Reveal>
-						))}
+						];
+						const extra = [
+							'https://images.unsplash.com/photo-1546483875-ad9014c88eba?auto=format&fit=crop&w=800&q=80',
+							'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=800&q=80',
+							'https://images.unsplash.com/photo-1607962837359-3e4d60c1d77f?auto=format&fit=crop&w=800&q=80',
+							'https://images.unsplash.com/photo-1599058917212-d750089bc07c?auto=format&fit=crop&w=800&q=80',
+							'https://images.unsplash.com/photo-1562771379-eafd33699c85?auto=format&fit=crop&w=800&q=80',
+							'https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?auto=format&fit=crop&w=800&q=80'
+						];
+						const images = showMore ? [...baseImages, ...extra] : baseImages;
+						return (
+							<div style={{ display: 'grid', gap: '18px', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))' }}>
+								{images.map((url, i) => (
+									<Reveal key={url} delay={i * 55} style={{ position: 'relative', borderRadius: '18px', overflow: 'hidden', border: '1px solid rgba(148,163,184,0.25)', boxShadow: '0 16px 40px rgba(9,15,29,0.4)' }}>
+										<img
+											src={url}
+											alt={language === 'en' ? 'Gallery image' : 'Imagem da galeria'}
+											style={{ width: '100%', height: '220px', objectFit: 'cover', filter: 'brightness(0.92) saturate(1.15)' }}
+											loading="lazy"
+										/>
+										<div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(15,23,42,0.65), rgba(15,23,42,0.15))' }} />
+									</Reveal>
+								))}
+							</div>
+						);
+					})()}
+					<div style={{ marginTop: '28px', textAlign: 'center' }}>
+						<InteractiveButton variant="secondary" onClick={() => setShowMore((v) => !v)}>
+							{showMore ? (language === 'en' ? 'Show Less' : 'Mostrar menos') : (language === 'en' ? 'Show More' : 'Mostrar mais')}
+						</InteractiveButton>
 					</div>
 				</section>
 
