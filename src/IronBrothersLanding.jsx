@@ -218,6 +218,10 @@ const trustBadges = [
 		detail: {
 			en: 'Programming partner to leading boxes in Brazil, US, and Europe.',
 			pt: 'Parceiro de programação para boxes líderes no Brasil, EUA e Europa.'
+		},
+		image: {
+			url: 'https://images.unsplash.com/photo-1558611848-73f7eb4001a1?auto=format&fit=crop&w=800&q=80',
+			alt: { en: 'Cross-training gym partners', pt: 'Parceiros de academias de cross-training' }
 		}
 	},
 	{
@@ -225,6 +229,10 @@ const trustBadges = [
 		detail: {
 			en: 'Preparation for elite qualifiers across functional fitness, triathlon, and jiu-jitsu.',
 			pt: 'Preparação para seletivas de elite em fitness funcional, triathlon e jiu-jitsu.'
+		},
+		image: {
+			url: 'https://images.unsplash.com/photo-1605296867304-46d5465a13f1?auto=format&fit=crop&w=800&q=80',
+			alt: { en: 'National level athlete', pt: 'Atleta em nível nacional' }
 		}
 	},
 	{
@@ -232,6 +240,10 @@ const trustBadges = [
 		detail: {
 			en: 'Performance systems customized for high-demand executive schedules.',
 			pt: 'Sistemas de performance adaptados a agendas executivas de alta demanda.'
+		},
+		image: {
+			url: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80',
+			alt: { en: 'Corporate team leadership', pt: 'Liderança corporativa' }
 		}
 	}
 ];
@@ -243,6 +255,10 @@ const programs = [
 		description: {
 			en: 'Personalized training and strategic coaching for hybrid athletes balancing strength, endurance, and lifestyle demands.',
 			pt: 'Treinamento personalizado e coaching estratégico para atletas híbridos que equilibram força, endurance e rotina intensa.'
+		},
+		image: {
+			url: 'https://images.unsplash.com/photo-1571731956672-ac8e8b9b0d55?auto=format&fit=crop&w=800&q=80',
+			alt: { en: 'Hybrid athlete training', pt: 'Treino de atleta híbrido' }
 		},
 		features: [
 			{
@@ -266,6 +282,10 @@ const programs = [
 			en: 'High-touch season design for competitive athletes targeting qualifiers and championship podiums.',
 			pt: 'Planejamento de temporada premium para atletas rumo a seletivas e pódios de campeonato.'
 		},
+		image: {
+			url: 'https://images.unsplash.com/photo-1549045337-967927d923c2?auto=format&fit=crop&w=800&q=80',
+			alt: { en: 'Podium preparation', pt: 'Preparação para pódio' }
+		},
 		features: [
 			{
 				en: 'Competition simulations and quarterly in-person intensives',
@@ -287,6 +307,10 @@ const programs = [
 		description: {
 			en: 'Sustainable high-performance systems for entrepreneurs and executives who refuse to trade health for growth.',
 			pt: 'Sistemas de alta performance sustentáveis para empreendedores e executivos que não abrem mão da saúde.'
+		},
+		image: {
+			url: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=800&q=80',
+			alt: { en: 'Executive training', pt: 'Treino para executivos' }
 		},
 		features: [
 			{
@@ -372,6 +396,10 @@ const pricingTiers = [
 			en: 'Foundational hybrid coaching for emerging athletes ready to level up with precision.',
 			pt: 'Coaching híbrido fundamental para atletas em ascensão buscando precisão.'
 		},
+		image: {
+			url: 'https://images.unsplash.com/photo-1530825899616-6db10fb88cdd?auto=format&fit=crop&w=800&q=80',
+			alt: { en: 'Athlete starting hybrid plan', pt: 'Atleta iniciando plano híbrido' }
+		},
 		features: [
 			{
 				en: 'Individual program with bi-weekly adjustments',
@@ -395,6 +423,10 @@ const pricingTiers = [
 			en: 'High-touch coaching for driven competitors integrating strength, skill, and endurance cycles.',
 			pt: 'Coaching de alto contato para competidores integrando ciclos de força, habilidade e endurance.'
 		},
+		image: {
+			url: 'https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=800&q=80',
+			alt: { en: 'Intense competitor training', pt: 'Treino intenso de competidor' }
+		},
 		features: [
 			{
 				en: 'Weekly tactical sync with strategist',
@@ -417,6 +449,10 @@ const pricingTiers = [
 		description: {
 			en: 'Invitation-only integrated performance department for podium-bound teams and executives.',
 			pt: 'Departamento de performance integrado sob convite para equipes e executivos rumo ao pódio.'
+		},
+		image: {
+			url: 'https://images.unsplash.com/photo-1516574187841-cb9cc2ca948b?auto=format&fit=crop&w=800&q=80',
+			alt: { en: 'Elite team preparation', pt: 'Preparação de equipe elite' }
 		},
 		features: [
 			{
@@ -442,6 +478,10 @@ const testimonials = [
 		quote: {
 			en: 'The hybrid systems finally connected my strength, engine, and mindset. I qualified for my first national final with energy to spare.',
 			pt: 'O sistema híbrido finalmente alinhou minha força, meu engine e minha mentalidade. Classifiquei para minha primeira final nacional com energia de sobra.'
+		},
+		avatar: {
+			url: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=400&q=80',
+			alt: { en: 'Portrait of athlete Marina', pt: 'Retrato da atleta Marina' }
 		}
 	},
 	{
@@ -450,6 +490,10 @@ const testimonials = [
 		quote: {
 			en: 'Iron Brothers designed training that respected my travel schedule while boosting resilience. My team noticed the difference before I did.',
 			pt: 'A Iron Brothers criou treinos que respeitam minha agenda de viagens e elevaram minha resiliência. Minha equipe percebeu a diferença antes de mim.'
+		},
+		avatar: {
+			url: 'https://images.unsplash.com/photo-1603415526960-f7e0328dfe97?auto=format&fit=crop&w=400&q=80',
+			alt: { en: 'Portrait of founder Gabriel', pt: 'Retrato do fundador Gabriel' }
 		}
 	},
 	{
@@ -458,6 +502,10 @@ const testimonials = [
 		quote: {
 			en: 'Data reviews plus human coaching made every block intentional. I smashed my half Ironman time by 19 minutes.',
 			pt: 'As análises de dados somadas ao coaching humano tornaram cada bloco intencional. Reduzi meu tempo no meio Ironman em 19 minutos.'
+		},
+		avatar: {
+			url: 'https://images.unsplash.com/photo-1526746321719-dad5e01f7ddc?auto=format&fit=crop&w=400&q=80',
+			alt: { en: 'Portrait of athlete Sarah', pt: 'Retrato da atleta Sarah' }
 		}
 	}
 ];
@@ -546,9 +594,9 @@ const shopPreview = {
 		subtitle:
 			'Curated gear, program bundles, and recovery essentials designed with the same high standards as our coaching experience. Integrated Shopify checkout launches soon.',
 		items: [
-			{ name: 'Hybrid Performance Starter Kit', detail: 'Mobility tools, premium straps, and programming companion workbook.' },
-			{ name: 'Executive Fuel Bundle', detail: 'Clinically-backed supplements and nutrition frameworks for travel-heavy weeks.' },
-			{ name: 'Signature Apparel Drop', detail: 'Limited-run technical wear co-created with Iron Brothers athletes.' }
+			{ name: 'Hybrid Performance Starter Kit', detail: 'Mobility tools, premium straps, and programming companion workbook.', image: 'https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=800&q=80' },
+			{ name: 'Executive Fuel Bundle', detail: 'Clinically-backed supplements and nutrition frameworks for travel-heavy weeks.', image: 'https://images.unsplash.com/photo-1514512364185-4c2b346927ff?auto=format&fit=crop&w=800&q=80' },
+			{ name: 'Signature Apparel Drop', detail: 'Limited-run technical wear co-created with Iron Brothers athletes.', image: 'https://images.unsplash.com/photo-1528702748617-73efc2c5a3f3?auto=format&fit=crop&w=800&q=80' }
 		],
 		note: 'Join the waitlist to receive early access and launch-day bonuses.'
 	},
@@ -557,9 +605,9 @@ const shopPreview = {
 		subtitle:
 			'Equipamentos selecionados, pacotes de programas e essenciais de recuperação com o mesmo nível de excelência do nosso coaching. Checkout via Shopify disponível em breve.',
 		items: [
-			{ name: 'Kit Performance Híbrida', detail: 'Ferramentas de mobilidade, straps premium e workbook de programação.' },
-			{ name: 'Combo Energia Executiva', detail: 'Suplementos com respaldo clínico e frameworks nutricionais para semanas de viagem.' },
-			{ name: 'Drop de Apparel Assinatura', detail: 'Vestuário técnico em tiragem limitada cocriado com atletas Iron Brothers.' }
+			{ name: 'Kit Performance Híbrida', detail: 'Ferramentas de mobilidade, straps premium e workbook de programação.', image: 'https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=800&q=80' },
+			{ name: 'Combo Energia Executiva', detail: 'Suplementos com respaldo clínico e frameworks nutricionais para semanas de viagem.', image: 'https://images.unsplash.com/photo-1514512364185-4c2b346927ff?auto=format&fit=crop&w=800&q=80' },
+			{ name: 'Drop de Apparel Assinatura', detail: 'Vestuário técnico em tiragem limitada cocriado com atletas Iron Brothers.', image: 'https://images.unsplash.com/photo-1528702748617-73efc2c5a3f3?auto=format&fit=crop&w=800&q=80' }
 		],
 		note: 'Entre na lista de espera para receber acesso antecipado e bônus de lançamento.'
 	}
@@ -814,6 +862,13 @@ const styles = {
 		padding: '28px',
 		boxShadow: '0 24px 48px rgba(8, 15, 33, 0.35)',
 		backdropFilter: 'blur(12px)'
+	},
+	cardImage: {
+		width: '100%',
+		height: 160,
+		objectFit: 'cover',
+		borderRadius: '14px',
+		marginBottom: '14px'
 	},
 	list: {
 		listStyle: 'none',
@@ -1203,13 +1258,23 @@ export default function IronBrothersLanding() {
 						</p>
 					</div>
 					<div style={styles.cardGrid}>
-						{trustBadges.map((badge) => (
-							<HoverLift key={badge.name.en} style={styles.glassCard}>
-								<h3 style={{ fontSize: '18px', fontWeight: 600, marginBottom: '12px', color: '#e2e8f0' }}>
-									{badge.name[language]}
-								</h3>
-								<p style={styles.muted}>{badge.detail[language]}</p>
-							</HoverLift>
+						{trustBadges.map((badge, idx) => (
+							<Reveal key={badge.name.en} delay={idx * 70}>
+								<HoverLift style={styles.glassCard}>
+									{badge.image && (
+										<img
+											src={badge.image.url}
+											alt={badge.image.alt[language]}
+											loading="lazy"
+											style={{ width: '100%', height: 160, objectFit: 'cover', borderRadius: '12px', marginBottom: '14px' }}
+										/>
+									)}
+									<h3 style={{ fontSize: '18px', fontWeight: 600, marginBottom: '12px', color: '#e2e8f0' }}>
+										{badge.name[language]}
+									</h3>
+									<p style={styles.muted}>{badge.detail[language]}</p>
+								</HoverLift>
+							</Reveal>
 						))}
 					</div>
 				</section>
@@ -1227,21 +1292,31 @@ export default function IronBrothersLanding() {
 						</p>
 					</div>
 					<div style={styles.cardGrid}>
-						{programs.map((program) => (
-							<HoverLift as="article" key={program.id} style={styles.glassCard} intensity="medium">
-								<h3 style={{ fontSize: '22px', fontWeight: 600, marginBottom: '12px', color: '#f8fafc' }}>
-									{program.name[language]}
-								</h3>
-								<p style={{ ...styles.muted, marginBottom: '18px' }}>{program.description[language]}</p>
-								<ul style={styles.list}>
-									{program.features.map((feature) => (
-										<li key={feature.en} style={{ display: 'flex', gap: '10px', color: 'rgba(226, 232, 240, 0.88)' }}>
-											<span style={{ color: '#93c5fd' }}>▹</span>
-											<span>{feature[language]}</span>
-										</li>
-									))}
-								</ul>
-							</HoverLift>
+						{programs.map((program, idx) => (
+							<Reveal key={program.id} delay={idx * 80}>
+								<HoverLift as="article" style={styles.glassCard} intensity="medium">
+									{program.image && (
+										<img
+											src={program.image.url}
+											alt={program.image.alt[language]}
+											loading="lazy"
+											style={{ width: '100%', height: 180, objectFit: 'cover', borderRadius: '14px', marginBottom: '16px' }}
+										/>
+									)}
+									<h3 style={{ fontSize: '22px', fontWeight: 600, marginBottom: '12px', color: '#f8fafc' }}>
+										{program.name[language]}
+									</h3>
+									<p style={{ ...styles.muted, marginBottom: '18px' }}>{program.description[language]}</p>
+									<ul style={styles.list}>
+										{program.features.map((feature) => (
+											<li key={feature.en} style={{ display: 'flex', gap: '10px', color: 'rgba(226, 232, 240, 0.88)' }}>
+												<span style={{ color: '#93c5fd' }}>▹</span>
+												<span>{feature[language]}</span>
+											</li>
+										))}
+									</ul>
+								</HoverLift>
+							</Reveal>
 						))}
 					</div>
 				</section>
@@ -1333,23 +1408,33 @@ export default function IronBrothersLanding() {
 						</p>
 					</div>
 					<div style={styles.cardGrid}>
-						{pricingTiers.map((tier) => (
-							<HoverLift as="article" key={tier.id} style={styles.pricingCard} intensity="strong">
-								<h3 style={{ fontSize: '22px', fontWeight: 600, marginBottom: '8px', color: '#f8fafc' }}>{tier.name[language]}</h3>
-								<div style={{ fontSize: '18px', fontWeight: 600, color: '#93c5fd', marginBottom: '12px' }}>{tier.price[language]}</div>
-								<p style={{ ...styles.muted, marginBottom: '18px' }}>{tier.description[language]}</p>
-								<ul style={styles.list}>
-									{tier.features.map((feature) => (
-										<li key={feature.en} style={{ display: 'flex', gap: '10px', color: 'rgba(226, 232, 240, 0.88)' }}>
-											<span style={{ color: '#a855f7' }}>▹</span>
-											<span>{feature[language]}</span>
-										</li>
-									))}
-								</ul>
-								<button type="button" style={{ ...styles.secondaryButton, marginTop: '24px', width: '100%' }}>
-									{language === 'en' ? 'Apply for this tier' : 'Aplicar para este plano'}
-								</button>
-							</HoverLift>
+						{pricingTiers.map((tier, idx) => (
+							<Reveal key={tier.id} delay={idx * 80}>
+								<HoverLift as="article" style={styles.pricingCard} intensity="strong">
+									{tier.image && (
+										<img
+											src={tier.image.url}
+											alt={tier.image.alt[language]}
+											loading="lazy"
+											style={{ width: '100%', height: 160, objectFit: 'cover', borderRadius: '14px', marginBottom: '14px' }}
+										/>
+									)}
+									<h3 style={{ fontSize: '22px', fontWeight: 600, marginBottom: '8px', color: '#f8fafc' }}>{tier.name[language]}</h3>
+									<div style={{ fontSize: '18px', fontWeight: 600, color: '#93c5fd', marginBottom: '12px' }}>{tier.price[language]}</div>
+									<p style={{ ...styles.muted, marginBottom: '18px' }}>{tier.description[language]}</p>
+									<ul style={styles.list}>
+										{tier.features.map((feature) => (
+											<li key={feature.en} style={{ display: 'flex', gap: '10px', color: 'rgba(226, 232, 240, 0.88)' }}>
+												<span style={{ color: '#a855f7' }}>▹</span>
+												<span>{feature[language]}</span>
+											</li>
+										))}
+									</ul>
+									<button type="button" style={{ ...styles.secondaryButton, marginTop: '24px', width: '100%' }}>
+										{language === 'en' ? 'Apply for this tier' : 'Aplicar para este plano'}
+									</button>
+								</HoverLift>
+							</Reveal>
 						))}
 					</div>
 				</section>
@@ -1367,12 +1452,22 @@ export default function IronBrothersLanding() {
 						</p>
 					</div>
 					<div style={styles.cardGrid}>
-						{testimonials.map((testimonial) => (
-							<HoverLift as="article" key={testimonial.name} style={styles.glassCard} intensity="medium">
-								<p style={styles.quote}>“{testimonial.quote[language]}”</p>
-								<p style={{ fontWeight: 600, color: '#e2e8f0', marginBottom: '4px' }}>{testimonial.name}</p>
-								<p style={styles.muted}>{testimonial.role[language]}</p>
-							</HoverLift>
+						{testimonials.map((testimonial, idx) => (
+							<Reveal key={testimonial.name} delay={idx * 70}>
+								<HoverLift as="article" style={styles.glassCard} intensity="medium">
+									{testimonial.avatar && (
+										<img
+											src={testimonial.avatar.url}
+											alt={testimonial.avatar.alt[language]}
+											loading="lazy"
+											style={{ width: 72, height: 72, objectFit: 'cover', borderRadius: '50%', marginBottom: '14px', border: '2px solid rgba(148,163,184,0.35)' }}
+										/>
+									)}
+									<p style={styles.quote}>“{testimonial.quote[language]}”</p>
+									<p style={{ fontWeight: 600, color: '#e2e8f0', marginBottom: '4px' }}>{testimonial.name}</p>
+									<p style={styles.muted}>{testimonial.role[language]}</p>
+								</HoverLift>
+							</Reveal>
 						))}
 					</div>
 				</section>
@@ -1384,11 +1479,21 @@ export default function IronBrothersLanding() {
 						<p style={styles.sectionSubtitle}>{shop.subtitle}</p>
 					</div>
 					<div style={styles.cardGrid}>
-						{shop.items.map((item) => (
-							<HoverLift as="article" key={item.name} style={styles.glassCard} intensity="soft">
-								<h3 style={{ fontSize: '20px', fontWeight: 600, marginBottom: '10px', color: '#f8fafc' }}>{item.name}</h3>
-								<p style={styles.muted}>{item.detail}</p>
-							</HoverLift>
+						{shop.items.map((item, idx) => (
+							<Reveal key={item.name} delay={idx * 70}>
+								<HoverLift as="article" style={styles.glassCard} intensity="soft">
+									{item.image && (
+										<img
+											src={item.image}
+											alt={item.name}
+											loading="lazy"
+											style={{ width: '100%', height: 160, objectFit: 'cover', borderRadius: '12px', marginBottom: '12px' }}
+										/>
+									)}
+									<h3 style={{ fontSize: '20px', fontWeight: 600, marginBottom: '10px', color: '#f8fafc' }}>{item.name}</h3>
+									<p style={styles.muted}>{item.detail}</p>
+								</HoverLift>
+							</Reveal>
 						))}
 					</div>
 					<div style={{ marginTop: '28px', textAlign: 'center' }}>
