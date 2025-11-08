@@ -66,6 +66,17 @@ const heroImages = [
 	}
 ];
 
+// Ensure correct asset URLs under GitHub Pages base path
+const resolveSrc = (path) => {
+	if (typeof path !== 'string') return path;
+	// If it starts with /images/, prefix the Vite base (e.g., /iron-brothers/)
+	if (path.startsWith('/images/')) {
+		const base = (import.meta && import.meta.env && import.meta.env.BASE_URL) || '/';
+		return base.replace(/\/$/, '/') + path.replace(/^\//, '');
+	}
+	return path;
+};
+
 const trustBadges = [
 	{
 		name: { en: 'Cross-training affiliates', pt: 'Afiliados de Cross-training' },
@@ -898,7 +909,7 @@ export default function IronBrothersLanding() {
 							{heroImages.map((image) => (
 								<figure key={image.src} style={styles.imageCard}>
 									<img
-										src={image.src}
+										src={resolveSrc(image.src)}
 										alt={image.alt}
 										style={styles.heroImage}
 										loading="lazy"
