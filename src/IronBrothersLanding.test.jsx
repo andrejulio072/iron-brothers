@@ -4,7 +4,7 @@ import '@testing-library/jest-dom'
 import IronBrothersLanding from './IronBrothersLanding.jsx'
 
 it('renders hero tagline in English by default', () => {
-  render(<IronBrothersLanding />)
-  // Expect English tagline substring
-  expect(screen.getByText(/Real results/i)).toBeInTheDocument()
+	render(<IronBrothersLanding />)
+	// Ensure the English hero title renders by default
+	expect(screen.getByText(/High-performance coaching/i)).toBeInTheDocument()
 })
