@@ -1,4 +1,63 @@
-import React, { useMemo, useState } from 'react';
+import React, { useMemo, useState, useEffect, useRef } from 'react';
+
+// Helper to build local asset paths respecting Vite base on GitHub Pages
+const asset = (file) => {
+	const base = (import.meta && import.meta.env && import.meta.env.BASE_URL) || '/';
+	return `${base}assets/${file}`;
+};
+
+// Intersection Observer based reveal wrapper for premium fade/slide animations
+const Reveal = ({ as = 'div', children, style = {}, delay = 0 }) => {
+	const Comp = as;
+	const ref = useRef(null);
+		useEffect(() => {
+		const el = ref.current;
+		if (!el) return;
+		el.style.opacity = '0';
+		el.style.transform = 'translateY(24px)';
+		el.style.transition = 'opacity 700ms cubic-bezier(0.19, 1, 0.22, 1), transform 700ms cubic-bezier(0.19, 1, 0.22, 1)';
+		el.style.transitionDelay = `${delay}ms`;
+			// In tests (jsdom) or environments without IntersectionObserver, reveal immediately
+			if (typeof window === 'undefined' || typeof window.IntersectionObserver === 'undefined') {
+				el.style.opacity = '1';
+				el.style.transform = 'translateY(0)';
+				return;
+			}
+		const io = new IntersectionObserver((entries) => {
+			entries.forEach((entry) => {
+				if (entry.isIntersecting) {
+					el.style.opacity = '1';
+					el.style.transform = 'translateY(0)';
+					io.unobserve(el);
+				}
+			});
+		}, { threshold: 0.25 });
+		io.observe(el);
+		return () => io.disconnect();
+	}, [delay]);
+	return <Comp ref={ref} style={style}>{children}</Comp>;
+};
+
+// Animated number component for metrics
+const MetricValue = ({ value }) => {
+	const [display, setDisplay] = useState(value);
+	useEffect(() => {
+		const match = String(value).match(/^([0-9\.]+)(.*)$/);
+		if (!match) return; // non-numeric start, leave as-is
+		const target = parseFloat(match[1]);
+		const suffix = match[2];
+		let startTs; const duration = 1200;
+		const step = (ts) => {
+			if (!startTs) startTs = ts;
+			const progress = Math.min((ts - startTs) / duration, 1);
+			const current = Math.round(progress * target);
+			setDisplay(`${current}${suffix}`);
+			if (progress < 1) requestAnimationFrame(step);
+		};
+		requestAnimationFrame(step);
+	}, [value]);
+	return <div style={{ fontSize: '34px', fontWeight: 700, color: '#60a5fa', marginBottom: '6px' }}>{display}</div>;
+};
 
 const navItems = [
 	{ id: 'programs', label: { en: 'Programs', pt: 'Programas' } },
@@ -159,6 +218,7 @@ const programs = [
 const coaches = [
 	{
 		name: 'Andre Garcia',
+		image: 'andre_profile.jpg',
 		role: { en: 'Hybrid Performance Architect', pt: 'Arquiteto de Performance Híbrida' },
 		bio: {
 			en: 'Founder of Garcia Builder and co-creator of Iron Brothers methodology. Andre engineers bespoke training and recovery ecosystems for high-performing executives and athletes who demand measurable outcomes without compromising their careers.',
@@ -173,6 +233,7 @@ const coaches = [
 	},
 	{
 		name: 'Lucas Gabriel',
+		image: 'lucas_posing.jpg',
 		role: { en: 'Metabolic Performance Coach', pt: 'Coach de Performance Metabólica' },
 		bio: {
 			en: 'Lucas leads metabolic diagnostics and on-the-ground intensives. He blends sports science with practical accountability routines that keep founders and athletes consistent during demanding seasons.',
@@ -845,7 +906,10 @@ export default function IronBrothersLanding() {
 			<div style={styles.backdrop} aria-hidden="true" />
 			<div style={styles.content}>
 				<nav style={styles.navbar} aria-label={language === 'en' ? 'Main navigation' : 'Navegação principal'}>
-					<span style={styles.navBrand}>Iron Brothers</span>
+					<div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+						<img src={asset('logo1.jpg')} alt="Iron Brothers logo" style={{ width: 28, height: 28, borderRadius: 6 }} />
+						<span style={styles.navBrand}>Iron Brothers</span>
+					</div>
 					<ul style={styles.navLinks}>
 						{navItems.map((item) => (
 							<li key={item.id}>
@@ -921,6 +985,34 @@ export default function IronBrothersLanding() {
 					</div>
 				</header>
 
+				{/* Premium video showcase section */}
+				<section style={{ ...styles.section, paddingTop: '0px' }} id="showcase">
+					<Reveal>
+						<div style={{ position: 'relative', borderRadius: '24px', overflow: 'hidden', border: '1px solid rgba(148,163,184,0.25)', boxShadow: '0 25px 60px -10px rgba(0,0,0,0.55)', marginBottom: '38px' }}>
+							<video
+								src="https://cdn.coverr.co/videos/coverr-a-man-training-his-body-1664/1080p.mp4"
+								autoPlay
+								muted
+								loop
+								playsInline
+								style={{ width: '100%', height: '520px', objectFit: 'cover', filter: 'brightness(0.9) saturate(1.15)' }}
+								poster="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=1400&q=80"
+							/>
+							<div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(15,23,42,0.55), rgba(15,23,42,0.88))' }} />
+							<div style={{ position: 'absolute', bottom: 28, left: 34, maxWidth: '640px' }}>
+								<h2 style={{ fontSize: '34px', fontWeight: 700, color: '#f8fafc', marginBottom: '14px' }}>
+									{language === 'en' ? 'Precision engineered execution' : 'Execução com engenharia de precisão'}
+								</h2>
+								<p style={{ fontSize: '16px', lineHeight: 1.5, color: 'rgba(226,232,240,0.88)' }}>
+									{language === 'en'
+										? 'Data, recovery and tactical blocks merge in a cohesive season architecture. This is a glimpse of the hybrid lab environment.'
+										: 'Dados, recuperação e blocos táticos se fundem em uma arquitetura de temporada coesa. Este é um vislumbre do ambiente híbrido do nosso laboratório.'}
+								</p>
+							</div>
+						</div>
+					</Reveal>
+				</section>
+
 				<section style={styles.section} id="trust">
 					<div style={styles.sectionHeader}>
 						<span style={styles.sectionLabel}>{language === 'en' ? 'Trusted by' : 'Confiado por'}</span>
@@ -994,6 +1086,14 @@ export default function IronBrothersLanding() {
 					<div style={styles.cardGrid}>
 						{coaches.map((coach) => (
 							<div key={coach.name} style={styles.glassCard}>
+								{coach.image && (
+									<img
+										src={asset(coach.image)}
+										alt={coach.name}
+										style={{ width: '100%', height: 220, objectFit: 'cover', borderRadius: '12px', marginBottom: '14px', filter: 'brightness(0.95) contrast(1.05)' }}
+										loading="lazy"
+									/>
+								)}
 								<h3 style={{ fontSize: '20px', fontWeight: 600, marginBottom: '6px', color: '#e2e8f0' }}>{coach.name}</h3>
 								<p style={{ ...styles.muted, marginBottom: '14px' }}>{coach.role[language]}</p>
 								<p style={styles.muted}>{coach.bio[language]}</p>
@@ -1036,11 +1136,11 @@ export default function IronBrothersLanding() {
 						</p>
 					</div>
 					<div style={styles.resultsGrid}>
-						{results.map((result) => (
-							<div key={result.stat} style={styles.resultCard}>
-								<div style={{ fontSize: '34px', fontWeight: 700, color: '#60a5fa', marginBottom: '12px' }}>{result.stat}</div>
+						{results.map((result, idx) => (
+							<Reveal key={result.stat} style={styles.resultCard} delay={idx * 80}>
+								<MetricValue value={result.stat} />
 								<p style={styles.muted}>{result.label[language]}</p>
-							</div>
+							</Reveal>
 						))}
 					</div>
 				</section>
