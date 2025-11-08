@@ -47,35 +47,21 @@ const metrics = [
 
 const heroImages = [
 	{
-		src: '/images/hero/kettlebell-training.jpg',
-		fallback: 'https://images.unsplash.com/photo-1556817411-31ae72fa3ea0?auto=format&fit=crop&w=720&q=80',
+		src: 'https://images.unsplash.com/photo-1556817411-31ae72fa3ea0?auto=format&fit=crop&w=1400&q=80',
 		alt: 'Athlete performing kettlebell swings inside an industrial gym',
 		credit: 'Photo by Danielle Cerullo on Unsplash'
 	},
 	{
-		src: '/images/hero/barbell-coaching.jpg',
-		fallback: 'https://images.unsplash.com/photo-1546483875-ad9014c88eba?auto=format&fit=crop&w=720&q=80',
+		src: 'https://images.unsplash.com/photo-1546483875-ad9014c88eba?auto=format&fit=crop&w=1400&q=80',
 		alt: 'Coach guiding athlete through barbell training plan',
 		credit: 'Photo by Victor Freitas on Unsplash'
 	},
 	{
-		src: '/images/hero/runner-stadium.jpg',
-		fallback: 'https://images.unsplash.com/photo-1576678927484-cc907957088c?auto=format&fit=crop&w=720&q=80',
+		src: 'https://images.unsplash.com/photo-1576678927484-cc907957088c?auto=format&fit=crop&w=1400&q=80',
 		alt: 'Runner training at dusk in a modern stadium',
 		credit: 'Photo by Jonathan Borba on Unsplash'
 	}
 ];
-
-// Ensure correct asset URLs under GitHub Pages base path
-const resolveSrc = (path) => {
-	if (typeof path !== 'string') return path;
-	// If it starts with /images/, prefix the Vite base (e.g., /iron-brothers/)
-	if (path.startsWith('/images/')) {
-		const base = (import.meta && import.meta.env && import.meta.env.BASE_URL) || '/';
-		return base.replace(/\/$/, '/') + path.replace(/^\//, '');
-	}
-	return path;
-};
 
 const trustBadges = [
 	{
@@ -909,15 +895,11 @@ export default function IronBrothersLanding() {
 							{heroImages.map((image) => (
 								<figure key={image.src} style={styles.imageCard}>
 									<img
-										src={resolveSrc(image.src)}
+										src={image.src}
 										alt={image.alt}
 										style={styles.heroImage}
 										loading="lazy"
-										onError={(e) => {
-											if (image.fallback && e.target.src !== image.fallback) {
-												e.target.src = image.fallback;
-											}
-										}}
+										onError={undefined}
 									/>
 									<figcaption style={styles.imageCredit}>{image.credit}</figcaption>
 								</figure>
