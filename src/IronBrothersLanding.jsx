@@ -950,11 +950,11 @@ const styles = {
 export default function IronBrothersLanding() {
 	const [language, setLanguage] = useState('en');
 	const [showMore, setShowMore] = useState(false);
-	const [formData, setFormData] = useState({ name: '', email: '', goal: '' });
+	const [formData, setFormData] = useState({ name: '', email: '', goal: '', website: '' });
 	const [formSubmitted, setFormSubmitted] = useState(false);
 	const [formError, setFormError] = useState('');
 
-	const handleLeadFormSubmit = (event) => {
+	const handleLeadFormSubmit = async (event) => {
 		event.preventDefault();
 		setFormError('');
 
@@ -971,11 +971,37 @@ export default function IronBrothersLanding() {
 			return;
 		}
 
-		// TODO: Replace with actual CRM webhook (Formspree, Zapier, or custom endpoint)
-		console.log('Lead capture:', formData);
+		// Optional backend POST wiring if endpoint configured
+		const endpoint = (import.meta && import.meta.env && import.meta.env.VITE_LEAD_ENDPOINT)
+			|| (typeof window !== 'undefined' && window.IRON_LEAD_ENDPOINT);
+
+		if (endpoint) {
+			try {
+				const res = await fetch(endpoint, {
+					method: 'POST',
+					headers: { 'Content-Type': 'application/json' },
+					body: JSON.stringify({
+						name: formData.name,
+						email: formData.email,
+						goal: formData.goal,
+						website: formData.website || '' // honeypot
+					})
+				});
+				if (!res.ok) {
+					setFormError(language === 'en' ? 'Submission failed. Please try again later.' : 'Falha no envio. Tente novamente mais tarde.');
+					return;
+				}
+			} catch (err) {
+				setFormError(language === 'en' ? 'Network error. Please try again.' : 'Erro de rede. Tente novamente.');
+				return;
+			}
+		} else {
+			// Fallback: local success without network
+			// console.log('Lead capture (local):', formData);
+		}
 
 		setFormSubmitted(true);
-		setFormData({ name: '', email: '', goal: '' });
+		setFormData({ name: '', email: '', goal: '', website: '' });
 
 		// Reset success message after 5 seconds
 		setTimeout(() => setFormSubmitted(false), 5000);
@@ -1137,14 +1163,19 @@ export default function IronBrothersLanding() {
 						return (
 							<div style={{ display: 'grid', gap: '18px', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))' }}>
 								{images.map((url, i) => (
-									<Reveal key={url} delay={i * 55} style={{ position: 'relative', borderRadius: '18px', overflow: 'hidden', border: '1px solid rgba(148,163,184,0.25)', boxShadow: '0 16px 40px rgba(9,15,29,0.4)' }}>
-										<img
-											src={url}
-											alt={language === 'en' ? 'Gallery image' : 'Imagem da galeria'}
-											style={{ width: '100%', height: '220px', objectFit: 'cover', filter: 'brightness(0.92) saturate(1.15)' }}
-											loading="lazy"
-										/>
-										<div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(15,23,42,0.65), rgba(15,23,42,0.15))' }} />
+									<Reveal key={url} delay={i * 55}>
+										<HoverLift
+											style={{ position: 'relative', borderRadius: '18px', overflow: 'hidden', border: '1px solid rgba(148,163,184,0.25)', boxShadow: '0 16px 40px rgba(9,15,29,0.4)' }}
+											intensity="soft"
+										>
+											<img
+												src={url}
+												alt={language === 'en' ? 'Gallery image' : 'Imagem da galeria'}
+												style={{ width: '100%', height: '220px', objectFit: 'cover', filter: 'brightness(0.92) saturate(1.15)' }}
+												loading="lazy"
+											/>
+											<div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(15,23,42,0.65), rgba(15,23,42,0.15))' }} />
+										</HoverLift>
 									</Reveal>
 								))}
 							</div>
@@ -1423,6 +1454,19 @@ export default function IronBrothersLanding() {
 								</div>
 							) : (
 								<form style={styles.leadForm} onSubmit={handleLeadFormSubmit}>
+									{/* Honeypot field for spam bots */}
+									<div style={{ position: 'absolute', left: '-5000px', top: 'auto', width: 1, height: 1, overflow: 'hidden' }} aria-hidden="true">
+										<label htmlFor="lead-website">Website</label>
+										<input
+											id="lead-website"
+											type="text"
+											name="website"
+											tabIndex={-1}
+											autoComplete="off"
+											value={formData.website}
+											onChange={(e) => handleInputChange('website', e.target.value)}
+										/>
+									</div>
 									<div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
 										<div>
 											<label htmlFor="lead-name" style={{ display: 'block', marginBottom: '6px', fontSize: '14px', color: '#cbd5e1' }}>
