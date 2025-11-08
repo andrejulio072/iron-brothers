@@ -98,6 +98,30 @@ const InteractiveButton = ({ variant = 'primary', children, onClick, style = {} 
 	);
 };
 
+// Hover lift microinteraction component for cards
+const HoverLift = ({ as = 'div', children, style = {}, intensity = 'medium' }) => {
+	const [hover, setHover] = useState(false);
+	const Comp = as;
+	const lift = intensity === 'soft' ? { dy: 2, shadow: '0 14px 32px rgba(8, 15, 33, 0.28)' } :
+		intensity === 'strong' ? { dy: 6, shadow: '0 40px 70px rgba(8, 15, 33, 0.45)' } :
+		{ dy: 4, shadow: '0 28px 56px rgba(8, 15, 33, 0.38)' };
+	return (
+		<Comp
+			onMouseEnter={() => setHover(true)}
+			onMouseLeave={() => setHover(false)}
+			style={{
+				transition: 'transform 200ms ease, box-shadow 220ms ease, border-color 200ms ease',
+				transform: hover ? `translateY(-${lift.dy}px)` : 'translateY(0)',
+				boxShadow: hover && (style.boxShadow ? lift.shadow : lift.shadow),
+				border: style.border ? (hover ? style.border.replace(/0\.25\)/, '0.38)') : style.border) : undefined,
+				...style,
+			}}
+		>
+			{children}
+		</Comp>
+	);
+};
+
 // Parallax hook for subtle vertical motion
 const useParallax = (multiplier = 0.12) => {
 	const ref = useRef(null);
@@ -970,7 +994,7 @@ export default function IronBrothersLanding() {
 
 	return (
 		<div style={styles.page} lang={language === 'pt' ? 'pt-BR' : 'en-US'}>
-			<div style={styles.backdrop} aria-hidden="true" />
+			<div style={styles.backdrop} aria-hidden="true" ref={useParallax(0.05)} />
 			<div style={styles.content}>
 				<nav style={styles.navbar} aria-label={language === 'en' ? 'Main navigation' : 'Navegação principal'}>
 					<div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
@@ -1024,7 +1048,7 @@ export default function IronBrothersLanding() {
 					<div style={styles.heroVisuals} ref={useParallax(0.08)}>
 						<div style={styles.imageStack}>
 							{heroImages.map((image) => (
-								<figure key={image.src} style={styles.imageCard}>
+								<HoverLift as="figure" key={image.src} style={styles.imageCard} intensity="soft">
 									<img
 										src={image.src}
 										alt={image.alt}
@@ -1033,19 +1057,20 @@ export default function IronBrothersLanding() {
 										onError={undefined}
 									/>
 									<figcaption style={styles.imageCredit}>{image.credit}</figcaption>
-								</figure>
+								</HoverLift>
 							))}
 						</div>
 						<div style={styles.metricPanel}>
+			{/* Metrics now wrapped with HoverLift for subtle lift on hover of each card */}
 							<h2 style={{ ...styles.sectionTitle, fontSize: '20px', marginBottom: '16px' }}>
 								{language === 'en' ? 'By the numbers' : 'Em números'}
 							</h2>
 							<div style={styles.metricsGrid}>
 								{metrics.map((metric) => (
-									<div key={metric.value} style={styles.metricCard}>
+									<HoverLift key={metric.value} style={styles.metricCard} intensity="soft">
 										<div style={styles.metricValue}>{metric.value}</div>
 										<p style={styles.muted}>{metric.label[language]}</p>
-									</div>
+									</HoverLift>
 								))}
 							</div>
 						</div>
@@ -1148,12 +1173,12 @@ export default function IronBrothersLanding() {
 					</div>
 					<div style={styles.cardGrid}>
 						{trustBadges.map((badge) => (
-							<div key={badge.name.en} style={styles.glassCard}>
+							<HoverLift key={badge.name.en} style={styles.glassCard}>
 								<h3 style={{ fontSize: '18px', fontWeight: 600, marginBottom: '12px', color: '#e2e8f0' }}>
 									{badge.name[language]}
 								</h3>
 								<p style={styles.muted}>{badge.detail[language]}</p>
-							</div>
+							</HoverLift>
 						))}
 					</div>
 				</section>
@@ -1172,7 +1197,7 @@ export default function IronBrothersLanding() {
 					</div>
 					<div style={styles.cardGrid}>
 						{programs.map((program) => (
-							<article key={program.id} style={styles.glassCard}>
+							<HoverLift as="article" key={program.id} style={styles.glassCard} intensity="medium">
 								<h3 style={{ fontSize: '22px', fontWeight: 600, marginBottom: '12px', color: '#f8fafc' }}>
 									{program.name[language]}
 								</h3>
@@ -1185,7 +1210,7 @@ export default function IronBrothersLanding() {
 										</li>
 									))}
 								</ul>
-							</article>
+							</HoverLift>
 						))}
 					</div>
 				</section>
@@ -1204,7 +1229,7 @@ export default function IronBrothersLanding() {
 					</div>
 					<div style={styles.cardGrid}>
 						{coaches.map((coach) => (
-							<div key={coach.name} style={styles.glassCard}>
+							<HoverLift key={coach.name} style={styles.glassCard} intensity="medium">
 								{coach.image && (
 									<img
 										src={asset(coach.image)}
@@ -1237,7 +1262,7 @@ export default function IronBrothersLanding() {
 										<span aria-hidden="true">↗</span>
 									</a>
 								)}
-							</div>
+							</HoverLift>
 						))}
 					</div>
 				</section>
@@ -1278,7 +1303,7 @@ export default function IronBrothersLanding() {
 					</div>
 					<div style={styles.cardGrid}>
 						{pricingTiers.map((tier) => (
-							<article key={tier.id} style={styles.pricingCard}>
+							<HoverLift as="article" key={tier.id} style={styles.pricingCard} intensity="strong">
 								<h3 style={{ fontSize: '22px', fontWeight: 600, marginBottom: '8px', color: '#f8fafc' }}>{tier.name[language]}</h3>
 								<div style={{ fontSize: '18px', fontWeight: 600, color: '#93c5fd', marginBottom: '12px' }}>{tier.price[language]}</div>
 								<p style={{ ...styles.muted, marginBottom: '18px' }}>{tier.description[language]}</p>
@@ -1293,7 +1318,7 @@ export default function IronBrothersLanding() {
 								<button type="button" style={{ ...styles.secondaryButton, marginTop: '24px', width: '100%' }}>
 									{language === 'en' ? 'Apply for this tier' : 'Aplicar para este plano'}
 								</button>
-							</article>
+							</HoverLift>
 						))}
 					</div>
 				</section>
@@ -1312,11 +1337,11 @@ export default function IronBrothersLanding() {
 					</div>
 					<div style={styles.cardGrid}>
 						{testimonials.map((testimonial) => (
-							<article key={testimonial.name} style={styles.glassCard}>
+							<HoverLift as="article" key={testimonial.name} style={styles.glassCard} intensity="medium">
 								<p style={styles.quote}>“{testimonial.quote[language]}”</p>
 								<p style={{ fontWeight: 600, color: '#e2e8f0', marginBottom: '4px' }}>{testimonial.name}</p>
 								<p style={styles.muted}>{testimonial.role[language]}</p>
-							</article>
+							</HoverLift>
 						))}
 					</div>
 				</section>
@@ -1329,10 +1354,10 @@ export default function IronBrothersLanding() {
 					</div>
 					<div style={styles.cardGrid}>
 						{shop.items.map((item) => (
-							<article key={item.name} style={styles.glassCard}>
+							<HoverLift as="article" key={item.name} style={styles.glassCard} intensity="soft">
 								<h3 style={{ fontSize: '20px', fontWeight: 600, marginBottom: '10px', color: '#f8fafc' }}>{item.name}</h3>
 								<p style={styles.muted}>{item.detail}</p>
-							</article>
+							</HoverLift>
 						))}
 					</div>
 					<div style={{ marginTop: '28px', textAlign: 'center' }}>
@@ -1350,7 +1375,7 @@ export default function IronBrothersLanding() {
 						<p style={styles.sectionSubtitle}>{schedule.subtitle}</p>
 					</div>
 					<div style={styles.splitSection}>
-						<article style={styles.glassCard}>
+						<HoverLift as="article" style={styles.glassCard} intensity="medium">
 							<h3 style={{ fontSize: '20px', fontWeight: 600, marginBottom: '14px', color: '#f8fafc' }}>
 								{language === 'en' ? 'What to expect' : 'O que esperar'}
 							</h3>
@@ -1379,8 +1404,8 @@ export default function IronBrothersLanding() {
 								</a>
 								<p style={styles.note}>{schedule.note}</p>
 							</div>
-						</article>
-						<article style={styles.glassCard}>
+						</HoverLift>
+						<HoverLift as="article" style={styles.glassCard} intensity="medium">
 							<h3 style={{ fontSize: '22px', fontWeight: 600, marginBottom: '12px', color: '#f8fafc' }}>{leadMagnet.headline}</h3>
 							<p style={styles.muted}>{leadMagnet.description}</p>
 
@@ -1456,7 +1481,7 @@ export default function IronBrothersLanding() {
 							)}
 
 							<p style={{ ...styles.leadDisclaimer, marginTop: '12px' }}>{leadMagnet.disclaimer}</p>
-						</article>
+						</HoverLift>
 					</div>
 				</section>
 
