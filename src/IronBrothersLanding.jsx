@@ -1013,6 +1013,39 @@ export default function IronBrothersLanding() {
 					</Reveal>
 				</section>
 
+				{/* Premium image gallery */}
+				<section style={styles.section} id="gallery">
+					<div style={styles.sectionHeader}>
+						<span style={styles.sectionLabel}>{language === 'en' ? 'Gallery' : 'Galeria'}</span>
+						<h2 style={styles.sectionTitle}>{language === 'en' ? 'Hybrid performance moments' : 'Momentos de performance híbrida'}</h2>
+						<p style={styles.sectionSubtitle}>
+							{language === 'en'
+								? 'A curated glimpse into the environments, tools and execution culture that shape season breakthroughs.'
+								: 'Um olhar selecionado sobre ambientes, ferramentas e a cultura de execução que impulsiona avanços de temporada.'}
+						</p>
+					</div>
+					<div style={{ display: 'grid', gap: '18px', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))' }}>
+						{[
+							'https://images.unsplash.com/photo-1579758629934-035aa3d1df7c?auto=format&fit=crop&w=800&q=80',
+							'https://images.unsplash.com/photo-1507537297725-24a1c029d3ca?auto=format&fit=crop&w=800&q=80',
+							'https://images.unsplash.com/photo-1605296867304-46d5465a13f1?auto=format&fit=crop&w=800&q=80',
+							'https://images.unsplash.com/photo-1526401485004-2aa7e6b66f79?auto=format&fit=crop&w=800&q=80',
+							'https://images.unsplash.com/photo-1616279969855-c3eac3078297?auto=format&fit=crop&w=800&q=80',
+							'https://images.unsplash.com/photo-1555680202-23c69772c0f9?auto=format&fit=crop&w=800&q=80'
+						].map((url, i) => (
+							<Reveal key={url} delay={i * 70} style={{ position: 'relative', borderRadius: '18px', overflow: 'hidden', border: '1px solid rgba(148,163,184,0.25)', boxShadow: '0 16px 40px rgba(9,15,29,0.4)' }}>
+								<img
+									src={url}
+									alt={language === 'en' ? 'Gallery image' : 'Imagem da galeria'}
+									style={{ width: '100%', height: '220px', objectFit: 'cover', filter: 'brightness(0.92) saturate(1.15)' }}
+									loading="lazy"
+								/>
+								<div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(15,23,42,0.65), rgba(15,23,42,0.15))' }} />
+							</Reveal>
+						))}
+					</div>
+				</section>
+
 				<section style={styles.section} id="trust">
 					<div style={styles.sectionHeader}>
 						<span style={styles.sectionLabel}>{language === 'en' ? 'Trusted by' : 'Confiado por'}</span>
