@@ -336,77 +336,77 @@ const programs = [
 		id: 'hybrid',
 		name: { en: 'Hybrid Performance Blueprint', pt: 'Blueprint de Performance Híbrida' },
 		description: {
-			en: 'Personalized training and strategic coaching for hybrid athletes balancing strength, endurance, and lifestyle demands.',
-			pt: 'Treinamento personalizado e coaching estratégico para atletas híbridos que equilibram força, endurance e rotina intensa.'
+			en: 'Remote training and online coaching for hybrid athletes balancing strength, endurance, and demanding schedules.',
+			pt: 'Treinamento remoto e coaching online para atletas híbridos que equilibram força, endurance e rotina intensa.'
 		},
 		image: {
-			url: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=800&q=80',
-			alt: { en: 'Hybrid athlete training', pt: 'Treino de atleta híbrido' }
+			url: 'https://images.pexels.com/photos/416717/pexels-photo-416717.jpeg?auto=compress&cs=tinysrgb&w=800',
+			alt: { en: 'Hybrid athlete remote training', pt: 'Treino remoto de atleta híbrido' }
 		},
 		features: [
 			{
-				en: '▹ Weekly 1:1 strategy lab and adaptive periodization',
-				pt: '▹ Sessão semanal de estratégia 1:1 e periodização adaptativa'
+				en: '▹ Weekly video strategy sessions and adaptive programming',
+				pt: '▹ Sessões semanais de estratégia por vídeo e programação adaptativa'
 			},
 			{
-				en: '▹ Video breakdown with biomechanics annotations',
-				pt: '▹ Análise em vídeo com anotações de biomecânica'
+				en: '▹ Form video analysis with detailed technique feedback',
+				pt: '▹ Análise de vídeo de técnica com feedback detalhado'
 			},
 			{
-				en: '▹ Recovery, sleep, and stress dashboards reviewed weekly',
-				pt: '▹ Painéis de recuperação, sono e estresse revisados semanalmente'
+				en: '▹ Recovery, sleep, and stress tracking via app integration',
+				pt: '▹ Tracking de recuperação, sono e estresse via integração de apps'
 			}
 		]
 	},
 	{
 		id: 'elite',
-		name: { en: 'Elite Podium Prep', pt: 'Preparação Elite para Pódio' },
+		name: { en: 'Elite Competition Prep', pt: 'Preparação Elite para Competição' },
 		description: {
-			en: 'High-touch season design for competitive athletes targeting qualifiers and championship podiums.',
-			pt: 'Planejamento de temporada premium para atletas rumo a seletivas e pódios de campeonato.'
+			en: 'High-touch remote coaching for competitive athletes targeting championships and podium finishes.',
+			pt: 'Coaching remoto intensivo para atletas competitivos buscando campeonatos e pódios.'
 		},
 		image: {
-			url: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=800&q=80',
-			alt: { en: 'Podium preparation', pt: 'Preparação para pódio' }
+			url: 'https://images.pexels.com/photos/1552106/pexels-photo-1552106.jpeg?auto=compress&cs=tinysrgb&w=800',
+			alt: { en: 'Elite competition preparation', pt: 'Preparação para competição elite' }
 		},
 		features: [
 			{
-				en: '▹ Competition simulations and quarterly in-person intensives',
-				pt: '▹ Simulações de competição e imersões presenciais trimestrais'
+				en: '▹ Virtual competition simulations and remote testing protocols',
+				pt: '▹ Simulações virtuais de competição e protocolos de teste remotos'
 			},
 			{
-				en: '▹ Integrated sports nutrition and supplementation oversight',
-				pt: '▹ Supervisão integrada de nutrição esportiva e suplementação'
+				en: '▹ Integrated sports nutrition and supplement guidance online',
+				pt: '▹ Orientação online integrada de nutrição esportiva e suplementação'
 			},
 			{
-				en: '▹ Dedicated performance team with data analyst and recovery specialist',
-				pt: '▹ Equipe dedicada com analista de dados e especialista em recuperação'
+				en: '▹ Dedicated remote performance team with data analysis',
+				pt: '▹ Equipe remota dedicada de performance com análise de dados'
 			}
 		]
 	},
 	{
 		id: 'executive',
-		name: { en: 'Executive Vitality Lab', pt: 'Laboratório de Vitalidade Executiva' },
+		name: { en: 'Executive Vitality Program', pt: 'Programa de Vitalidade Executiva' },
 		description: {
-			en: 'Sustainable high-performance systems for entrepreneurs and executives who refuse to trade health for growth.',
-			pt: 'Sistemas de alta performance sustentáveis para empreendedores e executivos que não abrem mão da saúde.'
+			en: 'Flexible online coaching for entrepreneurs and executives who need sustainable high-performance without gym dependency.',
+			pt: 'Coaching online flexível para empreendedores e executivos que precisam de alta performance sustentável sem depender de academia.'
 		},
 		image: {
-			url: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=800&q=80',
-			alt: { en: 'Executive training', pt: 'Treino para executivos' }
+			url: 'https://images.pexels.com/photos/7991579/pexels-photo-7991579.jpeg?auto=compress&cs=tinysrgb&w=800',
+			alt: { en: 'Executive online training', pt: 'Treino online para executivos' }
 		},
 		features: [
 			{
-				en: '▹ Time-compressed training built around travel cadence',
-				pt: '▹ Treinos otimizados conforme ritmo de viagens'
+				en: '▹ Time-optimized workouts adaptable to travel and home setup',
+				pt: '▹ Treinos otimizados adaptáveis para viagens e setup caseiro'
 			},
 			{
-				en: '▹ Concierge habit architecture and accountability touchpoints',
-				pt: '▹ Arquitetura de hábitos com concierge e checkpoints de responsabilidade'
+				en: '▹ Remote habit coaching and accountability via messaging',
+				pt: '▹ Coaching remoto de hábitos e accountability via mensagens'
 			},
 			{
-				en: '▹ Bi-annual labs and deep health diagnostics',
-				pt: '▹ Exames semestrais e diagnósticos completos de saúde'
+				en: '▹ Quarterly virtual health assessments and goal planning',
+				pt: '▹ Avaliações virtuais trimestrais de saúde e planejamento de metas'
 			}
 		]
 	}
@@ -484,45 +484,45 @@ const pricingTiers = [
 	{
 		id: 'ascend',
 		name: { en: 'Ascend', pt: 'Ascender' },
-		price: { en: '£279 / month', pt: '£279 / mês' },
+		price: { en: '£97 / month', pt: '£97 / mês' },
 		description: {
-			en: 'Perfect for emerging athletes building their first structured performance system.',
-			pt: 'Perfeito para atletas em ascensão construindo seu primeiro sistema estruturado de performance.'
+			en: 'Essential online coaching for athletes building their first structured training system remotely.',
+			pt: 'Coaching online essencial para atletas construindo seu primeiro sistema de treino estruturado remotamente.'
 		},
 		image: {
-			url: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=800&q=80',
-			alt: { en: 'Athlete starting hybrid plan', pt: 'Atleta iniciando plano híbrido' }
+			url: 'https://images.pexels.com/photos/841130/pexels-photo-841130.jpeg?auto=compress&cs=tinysrgb&w=800',
+			alt: { en: 'Online training program', pt: 'Programa de treino online' }
 		},
 		features: [
 			{
-				en: '✓ Personalized training program with bi-weekly adjustments',
-				pt: '✓ Programa de treino personalizado com ajustes quinzenais'
+				en: '✓ Custom training program with weekly remote check-ins',
+				pt: '✓ Programa de treino personalizado com check-ins remotos semanais'
 			},
 			{
-				en: '✓ Monthly 1:1 performance review and strategy call',
-				pt: '✓ Revisão mensal de performance e estratégia 1:1'
+				en: '✓ Monthly 1:1 video call for performance review',
+				pt: '✓ Chamada de vídeo mensal 1:1 para revisão de performance'
 			},
 			{
-				en: '✓ Full access to recovery & mobility video library',
-				pt: '✓ Acesso completo à biblioteca de vídeos de recuperação e mobilidade'
+				en: '✓ Full access to online exercise library & tutorials',
+				pt: '✓ Acesso completo à biblioteca online de exercícios e tutoriais'
 			},
 			{
-				en: '✓ Training tracking app with real-time feedback',
-				pt: '✓ App de acompanhamento com feedback em tempo real'
+				en: '✓ Mobile app for workout tracking and instant messaging',
+				pt: '✓ App mobile para acompanhamento e mensagens instantâneas'
 			}
 		]
 	},
 	{
 		id: 'surge',
 		name: { en: 'Surge', pt: 'Impulso' },
-		price: { en: '£439 / month', pt: '£439 / mês' },
+		price: { en: '£177 / month', pt: '£177 / mês' },
 		description: {
-			en: 'For serious competitors who need integrated strength, skill, and endurance optimization.',
-			pt: 'Para competidores sérios que precisam de otimização integrada de força, habilidade e endurance.'
+			en: 'Comprehensive remote coaching with nutrition, technique analysis, and weekly strategy sessions.',
+			pt: 'Coaching remoto completo com nutrição, análise técnica e sessões semanais de estratégia.'
 		},
 		image: {
-			url: 'https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=800&q=80',
-			alt: { en: 'Intense competitor training', pt: 'Treino intenso de competidor' }
+			url: 'https://images.pexels.com/photos/1552242/pexels-photo-1552242.jpeg?auto=compress&cs=tinysrgb&w=800',
+			alt: { en: 'Remote coaching session', pt: 'Sessão de coaching remoto' }
 		},
 		features: [
 			{
@@ -530,34 +530,34 @@ const pricingTiers = [
 				pt: '✓ Tudo do plano Ascender, mais:'
 			},
 			{
-				en: '✓ Weekly tactical sync with dedicated strategist',
-				pt: '✓ Alinhamento tático semanal com estrategista dedicado'
+				en: '✓ Weekly video strategy calls with dedicated coach',
+				pt: '✓ Chamadas semanais de estratégia por vídeo com coach dedicado'
 			},
 			{
-				en: '✓ Comprehensive nutrition periodization & meal planning',
-				pt: '✓ Periodização nutricional completa e planejamento de refeições'
+				en: '✓ Complete online nutrition planning & macro tracking',
+				pt: '✓ Planejamento nutricional completo online e tracking de macros'
 			},
 			{
-				en: '✓ Unlimited video technique reviews (48h turnaround)',
-				pt: '✓ Análises técnicas ilimitadas em vídeo (resposta em 48h)'
+				en: '✓ Unlimited video form checks (24-48h review)',
+				pt: '✓ Análises ilimitadas de técnica em vídeo (revisão em 24-48h)'
 			},
 			{
-				en: '✓ Competition prep protocols & peak performance planning',
-				pt: '✓ Protocolos de preparação para competição e pico de performance'
+				en: '✓ Competition prep support & remote peak planning',
+				pt: '✓ Suporte para competição e planejamento remoto de pico'
 			}
 		]
 	},
 	{
 		id: 'apex',
 		name: { en: 'Apex', pt: 'Ápice' },
-		price: { en: 'Custom pricing', pt: 'Preço personalizado' },
+		price: { en: '£297 / month', pt: '£297 / mês' },
 		description: {
-			en: 'White-glove performance department for podium-bound athletes and executive teams.',
-			pt: 'Departamento de performance premium para atletas rumo ao pódio e equipes executivas.'
+			en: 'Elite online performance system with multidisciplinary team and priority support.',
+			pt: 'Sistema de performance online elite com equipe multidisciplinar e suporte prioritário.'
 		},
 		image: {
-			url: 'https://images.unsplash.com/photo-1599058917212-d750089bc07c?auto=format&fit=crop&w=800&q=80',
-			alt: { en: 'Elite team preparation', pt: 'Preparação de equipe elite' }
+			url: 'https://images.pexels.com/photos/4164759/pexels-photo-4164759.jpeg?auto=compress&cs=tinysrgb&w=800',
+			alt: { en: 'Elite online coaching', pt: 'Coaching online elite' }
 		},
 		features: [
 			{
@@ -565,20 +565,20 @@ const pricingTiers = [
 				pt: '✓ Tudo do plano Impulso, mais:'
 			},
 			{
-				en: '✓ Dedicated multidisciplinary team (coach, nutritionist, physio)',
-				pt: '✓ Equipe multidisciplinar dedicada (coach, nutricionista, fisio)'
+				en: '✓ Dedicated remote team (coach, nutritionist, recovery specialist)',
+				pt: '✓ Equipe remota dedicada (coach, nutricionista, especialista em recuperação)'
 			},
 			{
-				en: '✓ Quarterly in-person training camps & diagnostic labs',
-				pt: '✓ Camps presenciais trimestrais e exames diagnósticos'
+				en: '✓ Priority support via WhatsApp/Telegram (response within 4h)',
+				pt: '✓ Suporte prioritário via WhatsApp/Telegram (resposta em até 4h)'
 			},
 			{
-				en: '✓ Custom tech integration (Whoop, TrainingPeaks, etc.)',
-				pt: '✓ Integração personalizada de tecnologia (Whoop, TrainingPeaks, etc.)'
+				en: '✓ Biometric data integration (Whoop, Garmin, Apple Watch)',
+				pt: '✓ Integração de dados biométricos (Whoop, Garmin, Apple Watch)'
 			},
 			{
-				en: '✓ 24/7 concierge support for travel & competition logistics',
-				pt: '✓ Suporte concierge 24/7 para logística de viagens e competições'
+				en: '✓ Monthly performance reports with data-driven adjustments',
+				pt: '✓ Relatórios mensais de performance com ajustes baseados em dados'
 			}
 		]
 	}
@@ -707,9 +707,9 @@ const shopPreview = {
 		subtitle:
 			'Curated gear, program bundles, and recovery essentials designed with the same high standards as our coaching experience. Integrated Shopify checkout launches soon.',
 		items: [
-			{ name: 'Hybrid Performance Starter Kit', detail: 'Mobility tools, premium straps, and programming companion workbook.', image: 'https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=800&q=80' },
-			{ name: 'Executive Fuel Bundle', detail: 'Clinically-backed supplements and nutrition frameworks for travel-heavy weeks.', image: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=800&q=80' },
-			{ name: 'Signature Apparel Drop', detail: 'Limited-run technical wear co-created with Iron Brothers athletes.', image: 'https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=800&q=80' }
+			{ name: 'Hybrid Performance Starter Kit', detail: 'Mobility tools, premium straps, and programming companion workbook.', image: 'https://images.pexels.com/photos/3289711/pexels-photo-3289711.jpeg?auto=compress&cs=tinysrgb&w=800' },
+			{ name: 'Executive Fuel Bundle', detail: 'Clinically-backed supplements and nutrition frameworks for travel-heavy weeks.', image: 'https://images.pexels.com/photos/4021775/pexels-photo-4021775.jpeg?auto=compress&cs=tinysrgb&w=800' },
+			{ name: 'Signature Apparel Drop', detail: 'Limited-run technical wear co-created with Iron Brothers athletes.', image: 'https://images.pexels.com/photos/8436575/pexels-photo-8436575.jpeg?auto=compress&cs=tinysrgb&w=800' }
 		],
 		note: 'Join the waitlist to receive early access and launch-day bonuses.'
 	},
@@ -718,9 +718,9 @@ const shopPreview = {
 		subtitle:
 			'Equipamentos selecionados, pacotes de programas e essenciais de recuperação com o mesmo nível de excelência do nosso coaching. Checkout via Shopify disponível em breve.',
 		items: [
-			{ name: 'Kit Performance Híbrida', detail: 'Ferramentas de mobilidade, straps premium e workbook de programação.', image: 'https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=800&q=80' },
-			{ name: 'Combo Energia Executiva', detail: 'Suplementos com respaldo clínico e frameworks nutricionais para semanas de viagem.', image: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=800&q=80' },
-			{ name: 'Drop de Apparel Assinatura', detail: 'Vestuário técnico em tiragem limitada cocriado com atletas Iron Brothers.', image: 'https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=800&q=80' }
+			{ name: 'Kit Performance Híbrida', detail: 'Ferramentas de mobilidade, straps premium e workbook de programação.', image: 'https://images.pexels.com/photos/3289711/pexels-photo-3289711.jpeg?auto=compress&cs=tinysrgb&w=800' },
+			{ name: 'Combo Energia Executiva', detail: 'Suplementos com respaldo clínico e frameworks nutricionais para semanas de viagem.', image: 'https://images.pexels.com/photos/4021775/pexels-photo-4021775.jpeg?auto=compress&cs=tinysrgb&w=800' },
+			{ name: 'Drop de Apparel Assinatura', detail: 'Vestuário técnico em tiragem limitada cocriado com atletas Iron Brothers.', image: 'https://images.pexels.com/photos/8436575/pexels-photo-8436575.jpeg?auto=compress&cs=tinysrgb&w=800' }
 		],
 		note: 'Entre na lista de espera para receber acesso antecipado e bônus de lançamento.'
 	}

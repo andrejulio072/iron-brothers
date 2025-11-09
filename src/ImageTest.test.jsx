@@ -6,10 +6,10 @@ describe('Image Loading Tests', () => {
 	it('should render all pricing tier images', () => {
 		render(<IronBrothersLanding />);
 
-		// Check for pricing images by alt text
-		const ascendImg = screen.queryByAltText(/Athlete starting hybrid plan/i);
-		const surgeImg = screen.queryByAltText(/Intense competitor training/i);
-		const apexImg = screen.queryByAltText(/Elite team preparation/i);
+		// Check for pricing images by updated alt text
+		const ascendImg = screen.queryByAltText(/Online training program/i);
+		const surgeImg = screen.queryByAltText(/Remote coaching session/i);
+		const apexImg = screen.queryByAltText(/Elite online coaching/i);
 
 		expect(ascendImg).toBeTruthy();
 		expect(surgeImg).toBeTruthy();
@@ -24,9 +24,9 @@ describe('Image Loading Tests', () => {
 	it('should render all program images', () => {
 		render(<IronBrothersLanding />);
 
-		const hybridImg = screen.queryByAltText(/Hybrid athlete training/i);
-		const eliteImg = screen.queryByAltText(/Podium preparation/i);
-		const executiveImg = screen.queryByAltText(/Executive training/i);
+		const hybridImg = screen.queryByAltText(/Hybrid athlete remote training/i);
+		const eliteImg = screen.queryByAltText(/Elite competition preparation/i);
+		const executiveImg = screen.queryByAltText(/Executive online training/i);
 
 		expect(hybridImg).toBeTruthy();
 		expect(eliteImg).toBeTruthy();
