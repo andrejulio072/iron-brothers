@@ -416,7 +416,7 @@ const coaches = [
 	{
 		name: 'Andre Garcia',
 		image: {
-			url: 'https://images.unsplash.com/photo-1568602471122-7832951cc4c5?auto=format&fit=crop&w=800&q=80',
+			url: asset('andre_profile.jpg'),
 			alt: { en: 'Andre Garcia coaching portrait', pt: 'Retrato profissional de Andre Garcia' }
 		},
 		role: { en: 'Hybrid Performance Architect', pt: 'Arquiteto de Performance Híbrida' },
@@ -434,7 +434,7 @@ const coaches = [
 	{
 		name: 'Lucas Gabriel',
 		image: {
-			url: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=800&q=80',
+			url: asset('lucas_posing.jpg'),
 			alt: { en: 'Lucas Gabriel coaching portrait', pt: 'Retrato profissional de Lucas Gabriel' }
 		},
 		role: { en: 'Metabolic Performance Coach', pt: 'Coach de Performance Metabólica' },
