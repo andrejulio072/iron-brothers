@@ -415,7 +415,10 @@ const programs = [
 const coaches = [
 	{
 		name: 'Andre Garcia',
-		image: 'andre_profile.jpg',
+		image: {
+			url: 'https://images.unsplash.com/photo-1568602471122-7832951cc4c5?auto=format&fit=crop&w=800&q=80',
+			alt: { en: 'Andre Garcia coaching portrait', pt: 'Retrato profissional de Andre Garcia' }
+		},
 		role: { en: 'Hybrid Performance Architect', pt: 'Arquiteto de Performance Híbrida' },
 		bio: {
 			en: 'Founder of Garcia Builder and co-creator of Iron Brothers methodology. Andre engineers bespoke training and recovery ecosystems for high-performing executives and athletes who demand measurable outcomes without compromising their careers.',
@@ -430,7 +433,10 @@ const coaches = [
 	},
 	{
 		name: 'Lucas Gabriel',
-		image: 'lucas_posing.jpg',
+		image: {
+			url: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=800&q=80',
+			alt: { en: 'Lucas Gabriel coaching portrait', pt: 'Retrato profissional de Lucas Gabriel' }
+		},
 		role: { en: 'Metabolic Performance Coach', pt: 'Coach de Performance Metabólica' },
 		bio: {
 			en: 'Lucas leads metabolic diagnostics and on-the-ground intensives. He blends sports science with practical accountability routines that keep founders and athletes consistent during demanding seasons.',
@@ -443,6 +449,10 @@ const coaches = [
 	},
 	{
 		name: 'Specialist Collective',
+		image: {
+			url: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=800&q=80',
+			alt: { en: 'Medical and recovery specialist team', pt: 'Equipe de especialistas médicos e recuperação' }
+		},
 		role: { en: 'Medical & recovery partners', pt: 'Rede médica e de recuperação' },
 		bio: {
 			en: 'A curated network of physiotherapists, sports physicians, and mindset coaches who plug into client roadmaps as needed for diagnostics, rehab, and high-stakes competition phases.',
@@ -1418,41 +1428,44 @@ export default function IronBrothersLanding() {
 						</p>
 					</div>
 					<div style={styles.cardGrid}>
-						{coaches.map((coach) => (
-							<HoverLift key={coach.name} style={styles.glassCard} intensity="medium">
-								{coach.image && (
-									<img
-										src={asset(coach.image)}
-										alt={coach.name}
-										style={{ width: '100%', height: 220, objectFit: 'cover', borderRadius: '12px', marginBottom: '14px', filter: 'brightness(0.95) contrast(1.05)' }}
-										loading="lazy"
-									/>
-								)}
-								<h3 style={{ fontSize: '20px', fontWeight: 600, marginBottom: '6px', color: '#e2e8f0' }}>{coach.name}</h3>
-								<p style={{ ...styles.muted, marginBottom: '14px' }}>{coach.role[language]}</p>
-								<p style={styles.muted}>{coach.bio[language]}</p>
-								{coach.specialties && (
-									<ul style={{ ...styles.list, marginTop: '16px' }}>
-										{coach.specialties[language].map((item) => (
-											<li key={item} style={{ display: 'flex', gap: '10px', color: 'rgba(226, 232, 240, 0.88)' }}>
-												<span style={{ color: '#38bdf8' }}>▹</span>
-												<span>{item}</span>
-											</li>
-										))}
-									</ul>
-								)}
-								{coach.link && (
-									<a
-										href={coach.link}
-										target="_blank"
-										rel="noopener noreferrer"
-										style={{ ...styles.secondaryButton, marginTop: '20px', display: 'inline-flex', alignItems: 'center', gap: '6px' }}
-									>
-										<span>{coach.linkLabel ? coach.linkLabel[language] : language === 'en' ? 'Learn more' : 'Saiba mais'}</span>
-										<span aria-hidden="true">↗</span>
-									</a>
-								)}
-							</HoverLift>
+						{coaches.map((coach, idx) => (
+							<Reveal key={coach.name} delay={idx * 75}>
+								<HoverLift style={styles.glassCard} intensity="medium">
+									{coach.image && (
+										<img
+											src={coach.image.url}
+											alt={coach.image.alt[language]}
+											style={{ width: '100%', height: 220, objectFit: 'cover', borderRadius: '12px', marginBottom: '14px', filter: 'brightness(0.95) contrast(1.05)' }}
+											loading="lazy"
+											decoding="async"
+										/>
+									)}
+									<h3 style={{ fontSize: '20px', fontWeight: 600, marginBottom: '6px', color: '#e2e8f0' }}>{coach.name}</h3>
+									<p style={{ ...styles.muted, marginBottom: '14px' }}>{coach.role[language]}</p>
+									<p style={styles.muted}>{coach.bio[language]}</p>
+									{coach.specialties && (
+										<ul style={{ ...styles.list, marginTop: '16px' }}>
+											{coach.specialties[language].map((item) => (
+												<li key={item} style={{ display: 'flex', gap: '10px', color: 'rgba(226, 232, 240, 0.88)' }}>
+													<span style={{ color: '#38bdf8' }}>▹</span>
+													<span>{item}</span>
+												</li>
+											))}
+										</ul>
+									)}
+									{coach.link && (
+										<a
+											href={coach.link}
+											target="_blank"
+											rel="noopener noreferrer"
+											style={{ ...styles.secondaryButton, marginTop: '20px', display: 'inline-flex', alignItems: 'center', gap: '6px' }}
+										>
+											<span>{coach.linkLabel ? coach.linkLabel[language] : language === 'en' ? 'Learn more' : 'Saiba mais'}</span>
+											<span aria-hidden="true">↗</span>
+										</a>
+									)}
+								</HoverLift>
+							</Reveal>
 						))}
 					</div>
 				</section>
