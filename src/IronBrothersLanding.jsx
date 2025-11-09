@@ -149,6 +149,88 @@ const useParallax = (multiplier = 0.12) => {
 	return ref;
 };
 
+// Tabbed code examples component
+const TechExamples = ({ language }) => {
+	const tabs = [
+		{
+			id: 'react',
+			label: 'React',
+			code: `function Metric({ value }) {
+	const [n, setN] = React.useState(0);
+	React.useEffect(() => {
+		let raf; const start = performance.now();
+		const dur = 900, target = Number(value) || 0;
+		const step = (t) => {
+			const p = Math.min((t - start) / dur, 1);
+			setN(Math.round(p * target));
+			if (p < 1) raf = requestAnimationFrame(step);
+		};
+		raf = requestAnimationFrame(step);
+		return () => cancelAnimationFrame(raf);
+	}, [value]);
+	return <strong>{n}</strong>;
+}`
+		},
+		{
+			id: 'js',
+			label: 'JavaScript',
+			code: `export function periodize(weeks, focus) {
+	const blocks = [];
+	for (let w = 1; w <= weeks; w++) {
+		blocks.push({ week: w, load: focus === 'strength' ? 0.7 + w*0.02 : 0.6 + w*0.03 });
+	}
+	return blocks;
+}`
+		},
+		{
+			id: 'ts',
+			label: 'TypeScript',
+			code: `type Block = { week: number; load: number };
+export function deload<T extends Block>(plan: T[], pct: number = 0.2): T[] {
+	return plan.map(b => ({ ...b, load: +(b.load * (1 - pct)).toFixed(2) } as T));
+}`
+		},
+		{
+			id: 'rb',
+			label: 'Ruby',
+			code: `def rolling_avg(values, window = 7)
+	values.each_cons(window).map { |w| (w.sum / w.length.to_f).round(2) }
+end`
+		}
+	];
+	const [active, setActive] = useState(tabs[0].id);
+	const copy = {
+		en: { run: 'Run mentally', note: 'Snippets are illustrative and simplified.' },
+		pt: { run: 'Execute mentalmente', note: 'Os trechos são ilustrativos e simplificados.' }
+	};
+	return (
+		<div>
+			<div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginBottom: 12 }}>
+				{tabs.map((t) => (
+					<InteractiveButton
+						key={t.id}
+						variant={active === t.id ? 'primary' : 'secondary'}
+						onClick={() => setActive(t.id)}
+						style={{ padding: '8px 16px' }}
+					>
+						{t.label}
+					</InteractiveButton>
+				))}
+			</div>
+			<Reveal>
+				<HoverLift style={{ ...styles.glassCard, padding: 0 }}>
+					<pre style={{ margin: 0, padding: 18, overflowX: 'auto', background: 'rgba(2,6,23,0.65)', borderRadius: '20px' }}>
+						<code>
+							{tabs.find((t) => t.id === active)?.code}
+						</code>
+					</pre>
+				</HoverLift>
+			</Reveal>
+			<p style={{ ...styles.muted, marginTop: 10 }}>{copy[language].note}</p>
+		</div>
+	);
+};
+
 const navItems = [
 	{ id: 'programs', label: { en: 'Programs', pt: 'Programas' } },
 	{ id: 'coaches', label: { en: 'Coaches', pt: 'Treinadores' } },
@@ -156,6 +238,7 @@ const navItems = [
 	{ id: 'pricing', label: { en: 'Pricing', pt: 'Planos' } },
 	{ id: 'testimonials', label: { en: 'Testimonials', pt: 'Depoimentos' } },
 	{ id: 'shop', label: { en: 'Shop', pt: 'Loja' } },
+	{ id: 'tech', label: { en: 'Tech', pt: 'Tecnologia' } },
 	{ id: 'schedule', label: { en: 'Schedule', pt: 'Agenda' } },
 	{ id: 'faq', label: { en: 'FAQ', pt: 'Perguntas' } }
 ];
@@ -1135,6 +1218,7 @@ export default function IronBrothersLanding() {
 										alt={image.alt}
 										style={styles.heroImage}
 										loading="lazy"
+										decoding="async"
 										onError={undefined}
 									/>
 									<figcaption style={styles.imageCredit}>{image.credit}</figcaption>
@@ -1502,6 +1586,22 @@ export default function IronBrothersLanding() {
 						</button>
 						<p style={{ ...styles.muted, marginTop: '12px' }}>{shop.note}</p>
 					</div>
+				</section>
+
+				{/* Technology code examples section */}
+				<section style={styles.section} id="tech">
+					<div style={styles.sectionHeader}>
+						<span style={styles.sectionLabel}>{language === 'en' ? 'Technology' : 'Tecnologia'}</span>
+						<h2 style={styles.sectionTitle}>
+							{language === 'en' ? 'Implementation snapshots' : 'Exemplos de implementação'}
+						</h2>
+						<p style={styles.sectionSubtitle}>
+							{language === 'en'
+								? 'A quick look at how we prototype training logic and integrations across multiple stacks.'
+								: 'Um olhar rápido de como prototipamos lógica de treino e integrações em múltiplas stacks.'}
+						</p>
+					</div>
+					<TechExamples language={language} />
 				</section>
 
 				<section style={styles.section} id="schedule">
