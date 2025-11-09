@@ -484,7 +484,7 @@ const pricingTiers = [
 	{
 		id: 'ascend',
 		name: { en: 'Ascend', pt: 'Ascender' },
-		price: { en: '$349 / month', pt: 'R$1.890 / mês' },
+		price: { en: '$349 / month', pt: '$349 / mês' },
 		description: {
 			en: 'Foundational hybrid coaching for emerging athletes ready to level up with precision.',
 			pt: 'Coaching híbrido fundamental para atletas em ascensão buscando precisão.'
@@ -511,7 +511,7 @@ const pricingTiers = [
 	{
 		id: 'surge',
 		name: { en: 'Surge', pt: 'Impulso' },
-		price: { en: '$549 / month', pt: 'R$2.890 / mês' },
+		price: { en: '$549 / month', pt: '$549 / mês' },
 		description: {
 			en: 'High-touch coaching for driven competitors integrating strength, skill, and endurance cycles.',
 			pt: 'Coaching de alto contato para competidores integrando ciclos de força, habilidade e endurance.'
@@ -538,7 +538,7 @@ const pricingTiers = [
 	{
 		id: 'apex',
 		name: { en: 'Apex', pt: 'Ápice' },
-		price: { en: 'Apply for pricing', pt: 'Sob consulta' },
+		price: { en: 'Apply for pricing', pt: 'Consulte preço' },
 		description: {
 			en: 'Invitation-only integrated performance department for podium-bound teams and executives.',
 			pt: 'Departamento de performance integrado sob convite para equipes e executivos rumo ao pódio.'
@@ -573,7 +573,7 @@ const testimonials = [
 			pt: 'O sistema híbrido finalmente alinhou minha força, meu engine e minha mentalidade. Classifiquei para minha primeira final nacional com energia de sobra.'
 		},
 		avatar: {
-			url: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=400&q=80',
+			url: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=400&q=80',
 			alt: { en: 'Portrait of athlete Marina', pt: 'Retrato da atleta Marina' }
 		}
 	},
@@ -585,7 +585,7 @@ const testimonials = [
 			pt: 'A Iron Brothers criou treinos que respeitam minha agenda de viagens e elevaram minha resiliência. Minha equipe percebeu a diferença antes de mim.'
 		},
 		avatar: {
-			url: 'https://images.unsplash.com/photo-1603415526960-f7e0328dfe97?auto=format&fit=crop&w=400&q=80',
+			url: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80',
 			alt: { en: 'Portrait of founder Gabriel', pt: 'Retrato do fundador Gabriel' }
 		}
 	},
@@ -597,7 +597,7 @@ const testimonials = [
 			pt: 'As análises de dados somadas ao coaching humano tornaram cada bloco intencional. Reduzi meu tempo no meio Ironman em 19 minutos.'
 		},
 		avatar: {
-			url: 'https://images.unsplash.com/photo-1526746321719-dad5e01f7ddc?auto=format&fit=crop&w=400&q=80',
+			url: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=400&q=80',
 			alt: { en: 'Portrait of athlete Sarah', pt: 'Retrato da atleta Sarah' }
 		}
 	}
@@ -1293,20 +1293,20 @@ export default function IronBrothersLanding() {
 					</div>
 					{(() => {
 						const baseImages = [
-							'https://images.unsplash.com/photo-1579758629934-035aa3d1df7c?auto=format&fit=crop&w=800&q=80',
-							'https://images.unsplash.com/photo-1507537297725-24a1c029d3ca?auto=format&fit=crop&w=800&q=80',
-							'https://images.unsplash.com/photo-1605296867304-46d5465a13f1?auto=format&fit=crop&w=800&q=80',
-							'https://images.unsplash.com/photo-1526401485004-2aa7e6b66f79?auto=format&fit=crop&w=800&q=80',
-							'https://images.unsplash.com/photo-1616279969855-c3eac3078297?auto=format&fit=crop&w=800&q=80',
-							'https://images.unsplash.com/photo-1555680202-23c69772c0f9?auto=format&fit=crop&w=800&q=80'
+							'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=800&q=80', // gym workout
+							'https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&w=800&q=80', // weightlifting
+							'https://images.unsplash.com/photo-1605296867304-46d5465a13f1?auto=format&fit=crop&w=800&q=80', // training session
+							'https://images.unsplash.com/photo-1574680096145-d05b474e2155?auto=format&fit=crop&w=800&q=80', // functional fitness
+							'https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=800&q=80', // group training
+							'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?auto=format&fit=crop&w=800&q=80', // strength conditioning
 						];
 						const extra = [
-							'https://images.unsplash.com/photo-1546483875-ad9014c88eba?auto=format&fit=crop&w=800&q=80',
-							'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=800&q=80',
-							'https://images.unsplash.com/photo-1607962837359-3e4d60c1d77f?auto=format&fit=crop&w=800&q=80',
-							'https://images.unsplash.com/photo-1599058917212-d750089bc07c?auto=format&fit=crop&w=800&q=80',
-							'https://images.unsplash.com/photo-1562771379-eafd33699c85?auto=format&fit=crop&w=800&q=80',
-							'https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?auto=format&fit=crop&w=800&q=80'
+							'https://images.unsplash.com/photo-1546483875-ad9014c88eba?auto=format&fit=crop&w=800&q=80', // kettlebell
+							'https://images.unsplash.com/photo-1517963879433-6ad2b056d712?auto=format&fit=crop&w=800&q=80', // running track
+							'https://images.unsplash.com/photo-1549576490-b0b4831ef60a?auto=format&fit=crop&w=800&q=80', // mobility work
+							'https://images.unsplash.com/photo-1599058917212-d750089bc07c?auto=format&fit=crop&w=800&q=80', // coaching moment
+							'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=800&q=80', // olympic lifting
+							'https://images.unsplash.com/photo-1600881333168-2ef49b341f30?auto=format&fit=crop&w=800&q=80', // recovery focus
 						];
 						const images = showMore ? [...baseImages, ...extra] : baseImages;
 						return (
@@ -1599,22 +1599,6 @@ export default function IronBrothersLanding() {
 						</button>
 						<p style={{ ...styles.muted, marginTop: '12px' }}>{shop.note}</p>
 					</div>
-				</section>
-
-				{/* Technology code examples section */}
-				<section style={styles.section} id="tech">
-					<div style={styles.sectionHeader}>
-						<span style={styles.sectionLabel}>{language === 'en' ? 'Technology' : 'Tecnologia'}</span>
-						<h2 style={styles.sectionTitle}>
-							{language === 'en' ? 'Implementation snapshots' : 'Exemplos de implementação'}
-						</h2>
-						<p style={styles.sectionSubtitle}>
-							{language === 'en'
-								? 'A quick look at how we prototype training logic and integrations across multiple stacks.'
-								: 'Um olhar rápido de como prototipamos lógica de treino e integrações em múltiplas stacks.'}
-						</p>
-					</div>
-					<TechExamples language={language} />
 				</section>
 
 				<section style={styles.section} id="schedule">
