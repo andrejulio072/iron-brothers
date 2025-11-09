@@ -279,19 +279,19 @@ const metrics = [
 
 const heroImages = [
 	{
-		src: 'https://images.unsplash.com/photo-1556817411-31ae72fa3ea0?auto=format&fit=crop&w=1400&q=80',
+		src: 'https://images.pexels.com/photos/949126/pexels-photo-949126.jpeg?auto=compress&cs=tinysrgb&w=1400',
 		alt: 'Athlete performing kettlebell swings inside an industrial gym',
-		credit: 'Photo by Danielle Cerullo on Unsplash'
+		credit: 'Photo by Victor Freitas on Pexels'
 	},
 	{
-		src: 'https://images.unsplash.com/photo-1546483875-ad9014c88eba?auto=format&fit=crop&w=1400&q=80',
+		src: 'https://images.pexels.com/photos/1552242/pexels-photo-1552242.jpeg?auto=compress&cs=tinysrgb&w=1400',
 		alt: 'Coach guiding athlete through barbell training plan',
-		credit: 'Photo by Victor Freitas on Unsplash'
+		credit: 'Photo by Victor Freitas on Pexels'
 	},
 	{
-		src: 'https://images.unsplash.com/photo-1576678927484-cc907957088c?auto=format&fit=crop&w=1400&q=80',
+		src: 'https://images.pexels.com/photos/2803158/pexels-photo-2803158.jpeg?auto=compress&cs=tinysrgb&w=1400',
 		alt: 'Runner training at dusk in a modern stadium',
-		credit: 'Photo by Jonathan Borba on Unsplash'
+		credit: 'Photo by Tembela Bohle on Pexels'
 	}
 ];
 
@@ -303,7 +303,7 @@ const trustBadges = [
 			pt: 'Parceiro de programação para boxes líderes no Brasil, EUA e Europa.'
 		},
 		image: {
-			url: 'https://images.unsplash.com/photo-1558611848-73f7eb4001a1?auto=format&fit=crop&w=800&q=80',
+			url: 'https://images.pexels.com/photos/4164502/pexels-photo-4164502.jpeg?auto=compress&cs=tinysrgb&w=800',
 			alt: { en: 'Cross-training gym partners', pt: 'Parceiros de academias de cross-training' }
 		}
 	},
@@ -314,7 +314,7 @@ const trustBadges = [
 			pt: 'Preparação para seletivas de elite em fitness funcional, triathlon e jiu-jitsu.'
 		},
 		image: {
-			url: 'https://images.unsplash.com/photo-1605296867304-46d5465a13f1?auto=format&fit=crop&w=800&q=80',
+			url: 'https://images.pexels.com/photos/703016/pexels-photo-703016.jpeg?auto=compress&cs=tinysrgb&w=800',
 			alt: { en: 'National level athlete', pt: 'Atleta em nível nacional' }
 		}
 	},
@@ -325,7 +325,7 @@ const trustBadges = [
 			pt: 'Sistemas de performance adaptados a agendas executivas de alta demanda.'
 		},
 		image: {
-			url: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80',
+			url: 'https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=800',
 			alt: { en: 'Corporate team leadership', pt: 'Liderança corporativa' }
 		}
 	}
@@ -450,7 +450,7 @@ const coaches = [
 	{
 		name: 'Specialist Collective',
 		image: {
-			url: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=800&q=80',
+			url: 'https://images.pexels.com/photos/8401135/pexels-photo-8401135.jpeg?auto=compress&cs=tinysrgb&w=800',
 			alt: { en: 'Medical and recovery specialist team', pt: 'Equipe de especialistas médicos e recuperação' }
 		},
 		role: { en: 'Medical & recovery partners', pt: 'Rede médica e de recuperação' },
@@ -593,7 +593,7 @@ const testimonials = [
 			pt: 'O sistema híbrido finalmente alinhou minha força, meu engine e minha mentalidade. Classifiquei para minha primeira final nacional com energia de sobra.'
 		},
 		avatar: {
-			url: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=400&q=80',
+			url: 'https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=400',
 			alt: { en: 'Portrait of athlete Marina', pt: 'Retrato da atleta Marina' }
 		}
 	},
@@ -605,7 +605,7 @@ const testimonials = [
 			pt: 'A Iron Brothers criou treinos que respeitam minha agenda de viagens e elevaram minha resiliência. Minha equipe percebeu a diferença antes de mim.'
 		},
 		avatar: {
-			url: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80',
+			url: 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=400',
 			alt: { en: 'Portrait of founder Gabriel', pt: 'Retrato do fundador Gabriel' }
 		}
 	},
@@ -617,7 +617,7 @@ const testimonials = [
 			pt: 'As análises de dados somadas ao coaching humano tornaram cada bloco intencional. Reduzi meu tempo no meio Ironman em 19 minutos.'
 		},
 		avatar: {
-			url: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=400&q=80',
+			url: 'https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&w=400',
 			alt: { en: 'Portrait of athlete Sarah', pt: 'Retrato da atleta Sarah' }
 		}
 	}
