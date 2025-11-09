@@ -340,21 +340,21 @@ const programs = [
 			pt: 'Treinamento personalizado e coaching estratégico para atletas híbridos que equilibram força, endurance e rotina intensa.'
 		},
 		image: {
-			url: 'https://images.unsplash.com/photo-1571731956672-ac8e8b9b0d55?auto=format&fit=crop&w=800&q=80',
+			url: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=800&q=80',
 			alt: { en: 'Hybrid athlete training', pt: 'Treino de atleta híbrido' }
 		},
 		features: [
 			{
-				en: 'Weekly 1:1 strategy lab and adaptive periodization',
-				pt: 'Sessão semanal de estratégia 1:1 e periodização adaptativa'
+				en: '▹ Weekly 1:1 strategy lab and adaptive periodization',
+				pt: '▹ Sessão semanal de estratégia 1:1 e periodização adaptativa'
 			},
 			{
-				en: 'Video breakdown with biomechanics annotations',
-				pt: 'Análise em vídeo com anotações de biomecânica'
+				en: '▹ Video breakdown with biomechanics annotations',
+				pt: '▹ Análise em vídeo com anotações de biomecânica'
 			},
 			{
-				en: 'Recovery, sleep, and stress dashboards reviewed weekly',
-				pt: 'Painéis de recuperação, sono e estresse revisados semanalmente'
+				en: '▹ Recovery, sleep, and stress dashboards reviewed weekly',
+				pt: '▹ Painéis de recuperação, sono e estresse revisados semanalmente'
 			}
 		]
 	},
@@ -366,21 +366,21 @@ const programs = [
 			pt: 'Planejamento de temporada premium para atletas rumo a seletivas e pódios de campeonato.'
 		},
 		image: {
-			url: 'https://images.unsplash.com/photo-1549045337-967927d923c2?auto=format&fit=crop&w=800&q=80',
+			url: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=800&q=80',
 			alt: { en: 'Podium preparation', pt: 'Preparação para pódio' }
 		},
 		features: [
 			{
-				en: 'Competition simulations and quarterly in-person intensives',
-				pt: 'Simulações de competição e imersões presenciais trimestrais'
+				en: '▹ Competition simulations and quarterly in-person intensives',
+				pt: '▹ Simulações de competição e imersões presenciais trimestrais'
 			},
 			{
-				en: 'Integrated sports nutrition and supplementation oversight',
-				pt: 'Supervisão integrada de nutrição esportiva e suplementação'
+				en: '▹ Integrated sports nutrition and supplementation oversight',
+				pt: '▹ Supervisão integrada de nutrição esportiva e suplementação'
 			},
 			{
-				en: 'Dedicated performance team with data analyst and recovery specialist',
-				pt: 'Equipe dedicada com analista de dados e especialista em recuperação'
+				en: '▹ Dedicated performance team with data analyst and recovery specialist',
+				pt: '▹ Equipe dedicada com analista de dados e especialista em recuperação'
 			}
 		]
 	},
@@ -392,21 +392,21 @@ const programs = [
 			pt: 'Sistemas de alta performance sustentáveis para empreendedores e executivos que não abrem mão da saúde.'
 		},
 		image: {
-			url: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=800&q=80',
+			url: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=800&q=80',
 			alt: { en: 'Executive training', pt: 'Treino para executivos' }
 		},
 		features: [
 			{
-				en: 'Time-compressed training built around travel cadence',
-				pt: 'Treinos otimizados conforme ritmo de viagens'
+				en: '▹ Time-compressed training built around travel cadence',
+				pt: '▹ Treinos otimizados conforme ritmo de viagens'
 			},
 			{
-				en: 'Concierge habit architecture and accountability touchpoints',
-				pt: 'Arquitetura de hábitos com concierge e checkpoints de responsabilidade'
+				en: '▹ Concierge habit architecture and accountability touchpoints',
+				pt: '▹ Arquitetura de hábitos com concierge e checkpoints de responsabilidade'
 			},
 			{
-				en: 'Bi-annual labs and deep health diagnostics',
-				pt: 'Exames semestrais e diagnósticos completos de saúde'
+				en: '▹ Bi-annual labs and deep health diagnostics',
+				pt: '▹ Exames semestrais e diagnósticos completos de saúde'
 			}
 		]
 	}
@@ -484,81 +484,101 @@ const pricingTiers = [
 	{
 		id: 'ascend',
 		name: { en: 'Ascend', pt: 'Ascender' },
-		price: { en: '$349 / month', pt: '$349 / mês' },
+		price: { en: '£279 / month', pt: '£279 / mês' },
 		description: {
-			en: 'Foundational hybrid coaching for emerging athletes ready to level up with precision.',
-			pt: 'Coaching híbrido fundamental para atletas em ascensão buscando precisão.'
+			en: 'Perfect for emerging athletes building their first structured performance system.',
+			pt: 'Perfeito para atletas em ascensão construindo seu primeiro sistema estruturado de performance.'
 		},
 		image: {
-			url: 'https://images.unsplash.com/photo-1530825899616-6db10fb88cdd?auto=format&fit=crop&w=800&q=80',
+			url: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=800&q=80',
 			alt: { en: 'Athlete starting hybrid plan', pt: 'Atleta iniciando plano híbrido' }
 		},
 		features: [
 			{
-				en: 'Individual program with bi-weekly adjustments',
-				pt: 'Programa individual com ajustes quinzenais'
+				en: '✓ Personalized training program with bi-weekly adjustments',
+				pt: '✓ Programa de treino personalizado com ajustes quinzenais'
 			},
 			{
-				en: 'Monthly performance review call',
-				pt: 'Revisão mensal de performance'
+				en: '✓ Monthly 1:1 performance review and strategy call',
+				pt: '✓ Revisão mensal de performance e estratégia 1:1'
 			},
 			{
-				en: 'Access to recovery and mobility library',
-				pt: 'Acesso à biblioteca de recuperação e mobilidade'
+				en: '✓ Full access to recovery & mobility video library',
+				pt: '✓ Acesso completo à biblioteca de vídeos de recuperação e mobilidade'
+			},
+			{
+				en: '✓ Training tracking app with real-time feedback',
+				pt: '✓ App de acompanhamento com feedback em tempo real'
 			}
 		]
 	},
 	{
 		id: 'surge',
 		name: { en: 'Surge', pt: 'Impulso' },
-		price: { en: '$549 / month', pt: '$549 / mês' },
+		price: { en: '£439 / month', pt: '£439 / mês' },
 		description: {
-			en: 'High-touch coaching for driven competitors integrating strength, skill, and endurance cycles.',
-			pt: 'Coaching de alto contato para competidores integrando ciclos de força, habilidade e endurance.'
+			en: 'For serious competitors who need integrated strength, skill, and endurance optimization.',
+			pt: 'Para competidores sérios que precisam de otimização integrada de força, habilidade e endurance.'
 		},
 		image: {
-			url: 'https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=800&q=80',
+			url: 'https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=800&q=80',
 			alt: { en: 'Intense competitor training', pt: 'Treino intenso de competidor' }
 		},
 		features: [
 			{
-				en: 'Weekly tactical sync with strategist',
-				pt: 'Alinhamento tático semanal com estrategista'
+				en: '✓ Everything in Ascend, plus:',
+				pt: '✓ Tudo do plano Ascender, mais:'
 			},
 			{
-				en: 'Comprehensive nutrition periodization',
-				pt: 'Periodização nutricional completa'
+				en: '✓ Weekly tactical sync with dedicated strategist',
+				pt: '✓ Alinhamento tático semanal com estrategista dedicado'
 			},
 			{
-				en: 'Unlimited technique reviews with 48-hour feedback',
-				pt: 'Revisões técnicas ilimitadas com feedback em 48h'
+				en: '✓ Comprehensive nutrition periodization & meal planning',
+				pt: '✓ Periodização nutricional completa e planejamento de refeições'
+			},
+			{
+				en: '✓ Unlimited video technique reviews (48h turnaround)',
+				pt: '✓ Análises técnicas ilimitadas em vídeo (resposta em 48h)'
+			},
+			{
+				en: '✓ Competition prep protocols & peak performance planning',
+				pt: '✓ Protocolos de preparação para competição e pico de performance'
 			}
 		]
 	},
 	{
 		id: 'apex',
 		name: { en: 'Apex', pt: 'Ápice' },
-		price: { en: 'Apply for pricing', pt: 'Consulte preço' },
+		price: { en: 'Custom pricing', pt: 'Preço personalizado' },
 		description: {
-			en: 'Invitation-only integrated performance department for podium-bound teams and executives.',
-			pt: 'Departamento de performance integrado sob convite para equipes e executivos rumo ao pódio.'
+			en: 'White-glove performance department for podium-bound athletes and executive teams.',
+			pt: 'Departamento de performance premium para atletas rumo ao pódio e equipes executivas.'
 		},
 		image: {
-			url: 'https://images.unsplash.com/photo-1516574187841-cb9cc2ca948b?auto=format&fit=crop&w=800&q=80',
+			url: 'https://images.unsplash.com/photo-1599058917212-d750089bc07c?auto=format&fit=crop&w=800&q=80',
 			alt: { en: 'Elite team preparation', pt: 'Preparação de equipe elite' }
 		},
 		features: [
 			{
-				en: 'Dedicated multidisciplinary staff and concierge support',
-				pt: 'Equipe multidisciplinar dedicada e suporte concierge'
+				en: '✓ Everything in Surge, plus:',
+				pt: '✓ Tudo do plano Impulso, mais:'
 			},
 			{
-				en: 'Quarterly in-person camps and labs',
-				pt: 'Camps e exames presenciais trimestrais'
+				en: '✓ Dedicated multidisciplinary team (coach, nutritionist, physio)',
+				pt: '✓ Equipe multidisciplinar dedicada (coach, nutricionista, fisio)'
 			},
 			{
-				en: 'Custom tech stack integration and reporting',
-				pt: 'Integração de tecnologia personalizada e relatórios exclusivos'
+				en: '✓ Quarterly in-person training camps & diagnostic labs',
+				pt: '✓ Camps presenciais trimestrais e exames diagnósticos'
+			},
+			{
+				en: '✓ Custom tech integration (Whoop, TrainingPeaks, etc.)',
+				pt: '✓ Integração personalizada de tecnologia (Whoop, TrainingPeaks, etc.)'
+			},
+			{
+				en: '✓ 24/7 concierge support for travel & competition logistics',
+				pt: '✓ Suporte concierge 24/7 para logística de viagens e competições'
 			}
 		]
 	}
