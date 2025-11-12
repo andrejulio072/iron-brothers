@@ -470,6 +470,60 @@ export const leadMagnetCopy = {
 	}
 };
 
+const techIntegrations = [
+	{
+		name: { en: 'Athlete OS Dashboard', pt: 'Painel Athlete OS' },
+		description: {
+			en: 'Centralizes Whoop, Garmin/Oura readiness, training volume, and trend alerts each morning.',
+			pt: 'Centraliza readiness do Whoop, Garmin/Oura, volume de treino e alertas de tendência todas as manhãs.'
+		}
+	},
+	{
+		name: { en: 'Notion + Google Sheets Automations', pt: 'Automations Notion + Google Sheets' },
+		description: {
+			en: 'Syncs session feedback, body metrics, and readiness markers for weekly performance audits.',
+			pt: 'Sincroniza feedback das sessões, métricas corporais e marcadores de readiness para auditorias semanais.'
+		}
+	},
+	{
+		name: { en: 'Video Review Pipeline', pt: 'Pipeline de Revisão em Vídeo' },
+		description: {
+			en: 'Tags Loom uploads and routes coach annotations back to athletes in under 24 hours.',
+			pt: 'Etiqueta uploads do Loom e envia feedback dos coaches de volta aos atletas em menos de 24 horas.'
+		}
+	},
+	{
+		name: { en: 'Recovery Lab Toolkit', pt: 'Toolkit do Recovery Lab' },
+		description: {
+			en: 'Integrates breathwork, HRV, and sleep data with reset protocols inside our app.',
+			pt: 'Integra dados de respiração, HRV e sono com protocolos de reset dentro do nosso app.'
+		}
+	}
+];
+
+export const techStackCopy = {
+	en: {
+		label: 'Tech Stack',
+		title: 'Automation that keeps execution precise',
+		subtitle:
+			'Our engineering layer merges wearables, planning tools, and communication loops so every decision stays data-backed.',
+		stackTitle: 'Systems we wire for every client',
+		stackSubtitle: 'These integrations update in real time, giving the team the signal without the noise.',
+		integrations: techIntegrations,
+		note: 'Custom scripts and API connectors are maintained in-house by the Iron Brothers Lab.'
+	},
+	pt: {
+		label: 'Stack Tecnológica',
+		title: 'Automação que mantém a execução precisa',
+		subtitle:
+			'Nossa camada de engenharia conecta wearables, ferramentas de planejamento e loops de comunicação para decisões baseadas em dados.',
+		stackTitle: 'Sistemas que ativamos para cada cliente',
+		stackSubtitle: 'Integrações em tempo real que entregam sinal sem ruído para coaches e atletas.',
+		integrations: techIntegrations,
+		note: 'Scripts e conectores de API são mantidos internamente pelo Iron Brothers Lab.'
+	}
+};
+
 export const shopPreview = {
 	en: {
 		title: 'Iron Brothers Store (Coming Soon)',
