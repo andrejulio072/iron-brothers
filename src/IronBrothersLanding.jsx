@@ -13,7 +13,6 @@ import ResultsSection from './sections/ResultsSection';
 import PricingSection from './sections/PricingSection';
 import TestimonialsSection from './sections/TestimonialsSection';
 import ShopSection from './sections/ShopSection';
-import TechSection from './sections/TechSection';
 import ScheduleSection from './sections/ScheduleSection';
 import FaqSection from './sections/FaqSection';
 import ApplySection from './sections/ApplySection';
@@ -32,7 +31,6 @@ import {
 	scheduleCopy,
 	leadMagnetCopy,
 	shopPreview,
-	techStackCopy,
 	ctaCopy,
 	footerCopy
 } from './content/landingContent';
@@ -54,7 +52,6 @@ export default function IronBrothersLanding() {
 	const schedule = useMemo(() => scheduleCopy[language], [language]);
 	const leadMagnet = useMemo(() => leadMagnetCopy[language], [language]);
 	const shop = useMemo(() => shopPreview[language], [language]);
-	const tech = useMemo(() => techStackCopy[language], [language]);
 	const footer = useMemo(() => footerCopy[language], [language]);
 	const backdropRef = useParallax(0.05);
 
@@ -73,7 +70,6 @@ export default function IronBrothersLanding() {
 				<PricingSection language={language} pricingTiers={pricingTiers} />
 				<TestimonialsSection language={language} testimonials={testimonials} />
 				<ShopSection language={language} shop={shop} />
-				<TechSection language={language} tech={tech} />
 				<ScheduleSection language={language} schedule={schedule} leadMagnet={leadMagnet} />
 				<FaqSection language={language} faqs={faqs} />
 				<ApplySection cta={cta} />
